@@ -1,7 +1,5 @@
+import { MainPage } from '@/pageComponents/MainPage/MainPage';
+
 export default function Main() {
-  return (
-    <main className={'main'}>
-      <div>main</div>
-    </main>
-  );
+  return <MainPage />;
 }
