@@ -1,0 +1,8 @@
+# exclude directories
+
+build
+
+nginx
+node_modules
+public
+.next
