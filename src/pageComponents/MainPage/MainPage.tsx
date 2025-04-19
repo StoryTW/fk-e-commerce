@@ -1,8 +1,12 @@
-import React from 'react'
-import styles from './MainPage.module.scss'
+import React from 'react';
+import styles from './MainPage.module.scss';
 
 export const MainPage = () => {
   return (
-    <main className={styles.root}>MainPage</main>
-  )
-}
+    <main className={styles.root}>
+      <div className={styles.wrapper}>
+        mian page
+      </div>
+    </main>
+  );
+};
