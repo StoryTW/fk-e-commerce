@@ -5,7 +5,7 @@ export const MainPage = () => {
   return (
     <main className={styles.root}>
       <div className={styles.wrapper}>
-        mian page
+        main page
       </div>
     </main>
   );

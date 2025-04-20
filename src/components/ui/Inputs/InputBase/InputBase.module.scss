@@ -1,0 +1,47 @@
+.root {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  input {
+    padding: 10px 14px;
+    background-size: 20px;
+    background-color: transparent;
+    border: 2px solid var(--aqua);
+    border-radius: 8px;
+    width: 100%;
+    color: var(--white);
+    font-size: 16px;
+    @include transition;
+
+    &:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    &:focus {
+      border: 2px solid var(--aqua);
+    }
+
+    &:active {
+      border: 2px solid var(--aqua);
+    }
+
+    &:read-only {
+      color: var(--gray);
+      border: 2px solid var(--aqua);
+    }
+
+    &::placeholder {
+      color: var(--gray);
+    }
+
+    &.error {
+      border: 2px solid var(--red);
+    }
+  }
+}

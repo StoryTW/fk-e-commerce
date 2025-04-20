@@ -1,0 +1,46 @@
+.root {
+  display: grid;
+  grid-template-columns: minmax(320px, 393px);
+  border-radius: 24px;
+  background: var(--white_alpha);
+  min-height: 372px;
+}
+
+.wrapper {
+  padding: 38px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+  color: var(--white);
+  @include transition;
+
+  &:hover {
+    color: var(--aqua);
+  }
+
+  &.active {
+    color: var(--aqua);
+  }
+}
+
+.line {
+  position: absolute;
+  top: 28px;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--aqua);
+  border-radius: 50%;
+}

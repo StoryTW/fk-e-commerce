@@ -39,7 +39,7 @@ export const Navbar = () => {
 
   return (
     <nav className={styles.root}>
-      <LayoutGroup>
+      <LayoutGroup id='navLayoutGroup'>
         {DATA.map((nav) => {
           return (
             <Link

@@ -1,0 +1,15 @@
+.root {
+  height: calc(100vh - 70px);
+
+  background: url('/images/bg_auth.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
