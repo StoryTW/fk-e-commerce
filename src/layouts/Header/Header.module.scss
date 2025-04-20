@@ -1,0 +1,18 @@
+.root {
+  background: url('/images/bg_header.png');
+  background-repeat: no-repeat;
+  height: 71px;
+}
+
+.wrapper {
+  padding: 2px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightSide {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

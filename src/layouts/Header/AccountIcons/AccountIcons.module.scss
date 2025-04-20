@@ -1,0 +1,23 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  svg {
+    color: var(--white);
+    @include transition;
+  }
+
+  &:hover {
+    svg {
+      color: var(--aqua);
+    }
+  }
+}

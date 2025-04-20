@@ -46,9 +46,7 @@ const nextConfig: NextConfig = {
     return config;
   },
   sassOptions: {
-    additionalData: `
-    @use "/src/assets/styles/mixins.scss";
-  `,
+    additionalData: `@use "/src/assets/styles/mixins.scss" as *;`,
   },
 };
 

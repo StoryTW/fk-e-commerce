@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import '@/assets/styles/index.scss';
 import { Header } from '@/layouts/Header/Header';
+import { Providers } from '@/providers/Providers';
+import '@/assets/styles/index.scss';
+import { ReactNode } from 'react';
 // import FaviconPng from '/public/favicon.png';
 
 export const metadata: Metadata = {
@@ -54,15 +56,17 @@ const geometria = localFont({
 });
 
 type RootLayoutType = Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>;
 
 export default function RootLayout({ children }: RootLayoutType) {
   return (
     <html lang='ru'>
       <body className={geometria.className}>
-        <Header />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
