@@ -4,6 +4,6 @@ export const ROUTER = {
   REVIEWS: '/reviews',
   WHEEL: '/wheel',
   FAQ: '/faq',
-  NEW: '/new',
+  // NEW: '/new',
   CONTACS: '/contacts',
 } as const;
