@@ -1,4 +1,5 @@
+import { ContactsPage } from "@/pageComponents/ContactsPage/ContactsPage";
 
 export default function Contacts() {
-  return <div>contacts</div>;
+  return <ContactsPage />;
 }

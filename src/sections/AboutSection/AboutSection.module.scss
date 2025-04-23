@@ -1,0 +1,21 @@
+.root {
+  display: grid;
+  grid-template-columns: minmax(320px, 1088px);
+}
+
+.title {
+  font-size: 24px;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.text {
+  font-size: 16px;
+  color: var(--gray2);
+  font-weight: 500;
+
+  span {
+    font-size: 24px;
+  }
+}
