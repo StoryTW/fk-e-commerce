@@ -1,7 +1,13 @@
 .root {
+  position: fixed;
   background: url('/images/bg_header.png');
   background-repeat: no-repeat;
-  height: 71px;
+  background-position: center center;
+  height: 72px;
+  top: 0;
+  max-width: 1920px;
+  width: 100%;
+  z-index: 101;
 }
 
 .wrapper {

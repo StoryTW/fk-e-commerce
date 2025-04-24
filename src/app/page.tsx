@@ -1,5 +1,10 @@
+import { MainLayout } from '@/layouts/MainLayout/MainLayout';
 import { MainPage } from '@/pageComponents/MainPage/MainPage';
 
 export default function Main() {
-  return <MainPage />;
+  return (
+    <MainLayout>
+      <MainPage />
+    </MainLayout>
+  );
 }

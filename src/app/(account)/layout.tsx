@@ -5,6 +5,6 @@ type LayoutType = Readonly<{
   children: ReactNode;
 }>;
 
-export default function PublicLayoutPage({ children }: LayoutType) {
+export default function AccountLayoutPage({ children }: LayoutType) {
   return <MainLayout>{children}</MainLayout>;
 }

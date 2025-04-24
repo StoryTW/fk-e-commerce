@@ -11,6 +11,7 @@
   display: block;
   @include transition;
   position: relative;
+  cursor: pointer;
 
   &:hover {
     color: var(--white);

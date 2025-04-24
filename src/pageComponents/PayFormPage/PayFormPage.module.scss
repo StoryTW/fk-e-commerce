@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.title {
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+
+.block {
+  display: grid;
+  grid-template-columns: minmax(320px, 816px);
+  background-color: var(--white_alpha);
+  border-radius: 24px;
+  padding: 68px 40px;
+}
+
