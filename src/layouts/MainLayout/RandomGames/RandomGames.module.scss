@@ -1,0 +1,13 @@
+.root {
+  position: absolute;
+
+  width: 600px;
+  height: calc(100vh - 177px);
+  z-index: 0;
+  left: 0;
+  top: 0;
+}
+
+.content {
+  position: relative;
+}
