@@ -9,7 +9,7 @@ export interface IRandomGame {
   };
 }
 
-export const DATA_GAMES: IRandomGame[] = [
+export const DATA_GAMES_LEFT: IRandomGame[] = [
   {
     name: 'UFC',
     opacity: 0.1,
@@ -27,6 +27,14 @@ export const DATA_GAMES: IRandomGame[] = [
     },
   },
   {
+    name: 'Alan Wake',
+    opacity: 0.1,
+    position: {
+      top: '290px',
+      left: '250px',
+    },
+  },
+  {
     name: '7 Days to Die',
     opacity: 0.5,
     position: {
@@ -35,11 +43,27 @@ export const DATA_GAMES: IRandomGame[] = [
     },
   },
   {
+    name: '18 Floors',
+    opacity: 0.05,
+    position: {
+      top: '320px',
+      left: '350px',
+    },
+  },
+  {
     name: 'Ace Combat',
     opacity: 0.6,
     position: {
       top: '360px',
       left: '50px',
+    },
+  },
+  {
+    name: 'ABZU',
+    opacity: 0.2,
+    position: {
+      top: '360px',
+      left: '230px',
     },
   },
   {
@@ -106,44 +130,103 @@ export const DATA_GAMES: IRandomGame[] = [
       left: '120px',
     },
   },
+];
+
+export const DATA_GAMES_RIGHT: IRandomGame[] = [
   {
-    name: 'Dsorder',
-    opacity: 0,
+    name: 'Sniper Elite Resistance',
+    opacity: 0.1,
     position: {
-      top: '0px',
-      bottom: '0px',
-      left: '0px',
-      right: '0px',
+      top: '140px',
+      right: '100px',
     },
   },
   {
-    name: '18 Floors',
-    opacity: 0,
+    name: 'Diablo',
+    opacity: 0.1,
     position: {
-      top: '0px',
-      bottom: '0px',
-      left: '0px',
-      right: '0px',
+      top: '200px',
+      right: '160px',
     },
   },
   {
-    name: 'ABZU',
-    opacity: 0,
+    name: 'NBA',
+    opacity: 0.1,
     position: {
-      top: '0px',
-      bottom: '0px',
-      left: '0px',
-      right: '0px',
+      top: '240px',
+      right: '80px',
     },
   },
   {
-    name: 'Alan Wake',
-    opacity: 0,
+    name: 'Desperados',
+    opacity: 0.1,
     position: {
-      top: '0px',
-      bottom: '0px',
-      left: '0px',
-      right: '0px',
+      top: '280px',
+      right: '160px',
+    },
+  },
+  {
+    name: 'The Smurfs',
+    opacity: 0.3,
+    position: {
+      top: '340px',
+      right: '150px',
+    },
+  },
+  {
+    name: 'Like a Dragon',
+    opacity: 0.4,
+    position: {
+      top: '380px',
+      right: '50px',
+    },
+  },
+  {
+    name: 'Dragon Age',
+    opacity: 0.4,
+    position: {
+      top: '420px',
+      right: '150px',
+    },
+  },
+  {
+    name: 'Call of Duty',
+    opacity: 0.5,
+    position: {
+      top: '460px',
+      right: '50px',
+    },
+  },
+  {
+    name: 'Metro Awakening',
+    opacity: 0.3,
+    position: {
+      top: '500px',
+      right: '150px',
+    },
+  },
+  {
+    name: 'Dynasty Wariors',
+    opacity: 0.6,
+    position: {
+      top: '540px',
+      right: '50px',
+    },
+  },
+  {
+    name: 'Farming Simulator',
+    opacity: 0.2,
+    position: {
+      top: '600px',
+      right: '100px',
+    },
+  },
+  {
+    name: 'Forza Horizon',
+    opacity: 0.4,
+    position: {
+      top: '680px',
+      right: '60px',
     },
   },
 ];

@@ -1,0 +1,15 @@
+.root {
+  position: relative;
+  grid-template-columns: minmax(320px, 1000px);
+}
+
+.swiper {
+  display: grid;
+  grid-template-columns: minmax(320px, 1000px);
+  justify-content: center;
+  overflow: hidden;
+}
+
+.banner {
+
+}

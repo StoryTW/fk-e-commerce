@@ -1,0 +1,28 @@
+.btn {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  color: var(--white);
+  top: 44%;
+  @include transition;
+
+  &:hover {
+    color: var(--brand);
+  }
+
+  @include respond(mobileL) {
+    display: none;
+  }
+
+  &.prev {
+    transform: rotate(180deg);
+    left: -18px;
+  }
+
+  &.next {
+    right: -18px;
+  }
+}

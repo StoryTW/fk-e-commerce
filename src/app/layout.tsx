@@ -2,10 +2,15 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Header } from '@/layouts/Header/Header';
 import { Providers } from '@/providers/Providers';
-import '@/assets/styles/index.scss';
 import { ReactNode } from 'react';
 import { Footer } from '@/layouts/Footer/Footer';
 import { Container } from '@/components/ui/Container/Container';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+import 'swiper/css/navigation';
+// import 'swiper/css/thumbs';
+import '@/assets/styles/index.scss';
 // import FaviconPng from '/public/favicon.png';
 
 export const metadata: Metadata = {

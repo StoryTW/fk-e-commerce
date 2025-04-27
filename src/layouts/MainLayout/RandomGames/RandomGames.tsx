@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './RandomGames.module.scss';
-import { DATA_GAMES } from './RandomGames.data';
+import { IRandomGame } from './RandomGames.data';
 import { RandomItem } from './RandomItem/RandomItem';
+import clsx from 'clsx';
 
-export const RandomGames = () => {
+interface IRandomGames {
+  data: IRandomGame[];
+  isLeft?: boolean;
+}
+
+export const RandomGames: FC<IRandomGames> = ({ data, isLeft = false }) => {
   return (
-    <div className={styles.root}>
-      {DATA_GAMES.map((item) => {
+    <div
+      className={clsx(styles.root, {
+        [styles.left]: isLeft,
+      })}
+    >
+      {data.map((item) => {
         return (
           <RandomItem
             key={item.name}
