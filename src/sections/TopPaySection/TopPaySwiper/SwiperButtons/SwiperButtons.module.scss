@@ -4,25 +4,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0px 16px 16px 0px;
+  height: 100%;
   z-index: 3;
   color: var(--white);
-  top: 44%;
+  top: 0;
+  background-color: rgba(#ffffff, 0.15);
   @include transition;
 
   &:hover {
-    color: var(--brand);
+    color: var(--aqua);
   }
 
-  @include respond(mobileL) {
-    display: none;
+  &:active,
+  &:focus {
+    background-color: rgba(#ffffff, 0.15);
   }
 
   &.prev {
     transform: rotate(180deg);
-    left: -18px;
+    left: 0px;
   }
 
   &.next {
-    right: -18px;
+    right: 0px;
   }
 }

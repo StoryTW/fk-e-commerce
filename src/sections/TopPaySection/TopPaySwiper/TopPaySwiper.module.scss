@@ -1,15 +1,21 @@
 .root {
   position: relative;
-  grid-template-columns: minmax(320px, 1000px);
+  max-width: 1350px;
+  width: 100%;
 }
 
 .swiper {
-  display: grid;
-  grid-template-columns: minmax(320px, 1000px);
-  justify-content: center;
-  overflow: hidden;
+  margin-bottom: 32px;
+  border-radius: 16px;
 }
 
 .banner {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 140px;
 
+  .image {
+    position: absolute;
+  }
 }

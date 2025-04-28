@@ -5,28 +5,28 @@ import { TopPaySwiper } from './TopPaySwiper/TopPaySwiper'
 const TOP_DATA = [
   {
     name: '1',
-    img: '',
-    href: '',
+    img: '/images/swiper/asasin.png',
+    href: '/',
   },
   {
     name: '2',
-    img: '',
-    href: '',
+    img: '/images/swiper/souls.png',
+    href: '/',
   },
   {
     name: '3',
-    img: '',
-    href: '',
+    img: '/images/swiper/control.png',
+    href: '/',
   },
   {
     name: '4',
-    img: '',
-    href: '',
+    img: '/images/swiper/asasin.png',
+    href: '/',
   },
   {
     name: '5',
-    img: '',
-    href: '',
+    img: '/images/swiper/control.png',
+    href: '/',
   },
 ]
 

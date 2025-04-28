@@ -5,6 +5,7 @@ import { Navigation } from 'swiper/modules';
 import { useSwiperRef } from '@/hooks/common/useSwiperRef';
 import styles from './TopPaySwiper.module.scss';
 import { SwiperButtons } from './SwiperButtons/SwiperButtons';
+import Image from 'next/image';
 
 interface ITopPaySwiper {
   data: any[];
@@ -19,7 +20,7 @@ export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
         loop={true}
         modules={[Navigation]}
         slidesPerView={3}
-        spaceBetween={16}
+        spaceBetween={12}
         className={styles.swiper}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
@@ -29,7 +30,15 @@ export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
           return (
             <SwiperSlide key={index}>
               <div className={styles.banner}>
-                {banner.name}
+                <Image
+                  src={banner.img}
+                  width={450}
+                  height={140}
+                  className={styles.image}
+                  alt='image'
+                  sizes='100vw'
+                  quality={100}
+                />
               </div>
             </SwiperSlide>
           );
