@@ -33,6 +33,9 @@ const TOP_DATA = [
 export const TopPaySection = () => {
   return (
     <section className={styles.root}>
+      <h2 className={styles.title}>
+        Топ покупок:
+      </h2>
       <TopPaySwiper data={TOP_DATA} />
     </section>
   )

@@ -1,0 +1,33 @@
+.btn {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  color: var(--white);
+  top: 24px;
+  border-radius: 50%;
+  background-color: transparent;
+  width: 48px;
+  height: 48px;
+  @include transition;
+
+  &:hover {
+    color: var(--aqua);
+  }
+
+  &:active,
+  &:focus {
+    background-color: transparent;
+  }
+
+  &.prev {
+    transform: rotate(180deg);
+    left: -64px;
+  }
+
+  &.next {
+    right: -64px;
+  }
+}
