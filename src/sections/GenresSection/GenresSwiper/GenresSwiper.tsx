@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './GenresSwiper.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import { useSwiperRef } from '@/hooks/common/useSwiperRef';
 import { GenresSwiperButtons } from './GenresSwiperButtons/GenresSwiperButtons';
 
@@ -16,7 +16,7 @@ export const GenresSwiper = ({ data }: IGenresSwiper) => {
   return (
     <div className={styles.root}>
       <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Navigation ]}
         slidesPerView={14}
         spaceBetween={12}
         className={styles.swiper}

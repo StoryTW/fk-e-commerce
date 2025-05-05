@@ -44,6 +44,17 @@ const animateObject = {
       height: 'auto',
     },
   },
+
+  cardLeft: {
+    hide: {
+      opacity: 0,
+      x: 0,
+    },
+    show: {
+      opacity: 1,
+      x: -200,
+    },
+  }
 };
 
 export const animateHelper = (variant: IAnimateVariants) => animateObject[variant];

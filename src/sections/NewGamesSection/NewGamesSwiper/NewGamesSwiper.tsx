@@ -1,13 +1,11 @@
 'use client';
-import React, { FC } from 'react';
+import React from 'react';
+import styles from './NewGamesSwiper.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import { useSwiperRef } from '@/hooks/common/useSwiperRef';
-import styles from './TopPaySwiper.module.scss';
-import { SwiperButtons } from './SwiperButtons/SwiperButtons';
+import { Pagination, EffectCards } from 'swiper/modules';
 import Image from 'next/image';
 
-interface ITopPaySwiper {
+interface INewGamesSwiper {
   data: {
     name: string;
     img: string;
@@ -15,20 +13,17 @@ interface ITopPaySwiper {
   }[];
 }
 
-export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
-  const { swiperRef, handlePrev, handleNext } = useSwiperRef();
-
+export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
   return (
     <div className={styles.root}>
       <Swiper
-        loop={true}
-        modules={[Navigation]}
-        slidesPerView={3}
-        spaceBetween={12}
+        modules={[Pagination, EffectCards]}
+        effect={'cards'}
+        grabCursor={true}
         className={styles.swiper}
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
-        }}
+        // onBeforeInit={(swiper) => {
+        //   swiperRef.current = swiper;
+        // }}
       >
         {data.map((banner, index) => {
           return (
@@ -36,8 +31,8 @@ export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
               <div className={styles.banner}>
                 <Image
                   src={banner.img}
-                  width={450}
-                  height={140}
+                  width={817}
+                  height={488}
                   className={styles.image}
                   alt='image'
                   sizes='100vw'
@@ -48,7 +43,6 @@ export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
           );
         })}
       </Swiper>
-      <SwiperButtons handlePrev={handlePrev} handleNext={handleNext} />
     </div>
   );
 };
