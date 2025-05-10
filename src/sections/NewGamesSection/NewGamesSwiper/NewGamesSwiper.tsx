@@ -18,16 +18,31 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
     <div className={styles.root}>
       <Swiper
         modules={[Pagination, EffectCards]}
-        effect={'cards'}
+        // effect={'cards'}
+        effect={'coverflow'}
         grabCursor={true}
+        slidesPerView={1.5}
+        loop={true}
+        spaceBetween={30}
         className={styles.swiper}
-        // onBeforeInit={(swiper) => {
-        //   swiperRef.current = swiper;
-        // }}
+        pagination={{
+          clickableClass: styles.swiper_pagination,
+          bulletClass: styles.bullet,
+          bulletActiveClass: styles.activeBullet,
+          clickable: true,
+        }}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 200,
+          modifier: 2.5,
+          slideShadows: false,
+        }}
+        centeredSlides={true}
       >
         {data.map((banner, index) => {
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className={styles.slide}>
               <div className={styles.banner}>
                 <Image
                   src={banner.img}
