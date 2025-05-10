@@ -1,4 +1,10 @@
+import { AccountPageLayout } from '@/layouts/AccountPageLayout/AccountPageLayout';
+import { ChangePasswordPage } from '@/pageComponents/ChangePasswordPage/ChangePasswordPage';
 
 export default function ChangePassword() {
-  return <div>ChangePassword</div>;
+  return (
+    <AccountPageLayout title='Изменить пароль'>
+      <ChangePasswordPage />
+    </AccountPageLayout>
+  );
 }

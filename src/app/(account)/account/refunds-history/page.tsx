@@ -1,4 +1,10 @@
+import { AccountPageLayout } from '@/layouts/AccountPageLayout/AccountPageLayout';
+import { RefundsHistoryPage } from '@/pageComponents/RefundsHistoryPage/RefundsHistoryPage';
 
 export default function RefundsHistory() {
-  return <div>RefundsHistory</div>;
+  return (
+    <AccountPageLayout title='История возвратов'>
+      <RefundsHistoryPage />
+    </AccountPageLayout>
+  );
 }

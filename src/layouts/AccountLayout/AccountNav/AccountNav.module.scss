@@ -1,12 +1,14 @@
-.root {
-}
-
 .wrapper {
   display: grid;
-  grid-template-columns: minmax(250px, 250px) minmax(100px, 700px);
+  grid-template-columns: minmax(250px, 250px) minmax(1px, 1px) minmax(320px, 810px);
 }
 
-.account {
+.divider {
+  width: 2px;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--aqua);
+  margin-top: 100px;
 }
 
 .leftTitle {
@@ -17,7 +19,6 @@
 
 .leftContent {
   height: 100%;
-  border-right: 1px solid var(--aqua);
 }
 
 .profileIcon {

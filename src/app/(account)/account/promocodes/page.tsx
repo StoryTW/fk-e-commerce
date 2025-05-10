@@ -1,4 +1,10 @@
+import { AccountPageLayout } from '@/layouts/AccountPageLayout/AccountPageLayout';
+import { PromocodesPage } from '@/pageComponents/PromocodesPage/PromocodesPage';
 
 export default function Promocodes() {
-  return <div>Promocodes</div>;
+  return (
+    <AccountPageLayout title='Промокоды'>
+      <PromocodesPage />
+    </AccountPageLayout>
+  );
 }

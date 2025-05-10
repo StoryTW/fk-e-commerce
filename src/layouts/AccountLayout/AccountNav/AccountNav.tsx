@@ -24,6 +24,7 @@ export const AccountNav = ({ children }: PropsWithChildren) => {
             <AccountNavbar />
           </div>
         </div>
+        <div className={styles.divider} />
         <div className={styles.content}>{children}</div>
       </div>
     </div>

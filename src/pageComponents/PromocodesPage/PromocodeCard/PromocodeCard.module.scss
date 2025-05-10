@@ -1,0 +1,40 @@
+.root {
+  position: relative;
+  background-color: var(--white_alpha);
+  border-radius: 24px;
+}
+
+.wrapper {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.imgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promocode {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.promocodeValue {
+  position: absolute;
+  bottom: 0;
+  right: 12px;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--aqua);
+}
