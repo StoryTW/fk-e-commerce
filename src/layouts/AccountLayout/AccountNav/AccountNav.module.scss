@@ -1,0 +1,45 @@
+.root {
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: minmax(250px, 250px) minmax(100px, 700px);
+}
+
+.account {
+}
+
+.leftTitle {
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 64px;
+}
+
+.leftContent {
+  height: 100%;
+  border-right: 1px solid var(--aqua);
+}
+
+.profileIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.email {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--aqua);
+  margin-bottom: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rigisterDate {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--aqua);
+  margin-bottom: 16px;
+}

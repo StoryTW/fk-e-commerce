@@ -5,7 +5,7 @@ import { GameCard } from './GameCard/GameCard';
 const CATALOG_DATA = [
   {
     name: 'Sid Meier`s Civilization VII',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '999',
     currency: 'руб',
     date: '',
@@ -14,7 +14,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Alien: Rogue Incursion (PSVR2)',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '799',
     currency: 'руб',
     date: '',
@@ -23,7 +23,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Lost Records: Bloom & Rage',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '899',
     currency: 'руб',
     date: '',
@@ -32,7 +32,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Disorder',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '499',
     currency: 'руб',
     date: '',
@@ -41,7 +41,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Empire of the Ants',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '899',
     currency: 'руб',
     date: '',
@@ -50,7 +50,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Ender Magnolia: Bloom in the  Mist',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '499',
     currency: 'руб',
     date: '',
@@ -59,7 +59,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Little Big Adventure – Twinsen’s Quest',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '799',
     currency: 'руб',
     date: '',
@@ -68,7 +68,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Like a Dragon: Pirate Yakuza in Hawaii',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '1999',
     currency: 'руб',
     date: '',
@@ -77,7 +77,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'The Smurfs - Dreams',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '499',
     currency: 'руб',
     date: '',
@@ -86,7 +86,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Metro Awakening',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '899',
     currency: 'руб',
     date: '',
@@ -95,7 +95,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Atomic Heart',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '699',
     currency: 'руб',
     date: '',
@@ -104,7 +104,7 @@ const CATALOG_DATA = [
   },
   {
     name: 'Dragon Age: The Veilguard',
-    img: '/images/catalog/civil.png',
+    img: '/images/catalog/alien.png',
     price: '799',
     currency: 'руб',
     date: '',

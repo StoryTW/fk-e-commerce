@@ -48,6 +48,15 @@ const nextConfig: NextConfig = {
   sassOptions: {
     additionalData: `@use "/src/assets/styles/mixins.scss" as *;`,
   },
+  async redirects() {
+    return [
+      {
+        source: '/account',
+        destination: '/account/cart',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

@@ -1,0 +1,32 @@
+.root {
+}
+
+.item {
+  color: var(--gray);
+  font-size: 14px;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    color: var(--white);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  &.active {
+    color: var(--white);
+  }
+}
+
+.logout {
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--red);
+  @include transition;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
