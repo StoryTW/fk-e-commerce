@@ -43,7 +43,7 @@ const FAQ_DATA = [
 
 export const FaqPage = () => {
   return (
-    <main className={styles.root}>
+    <div className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.faq}>
           <h1 className={styles.title}>Часто задаваемые вопросы, FAQ</h1>
@@ -57,6 +57,6 @@ export const FaqPage = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
