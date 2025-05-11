@@ -65,7 +65,7 @@ export const ChangePasswordPage = () => {
         />
       </div>
       <div className={styles.btnWrapper}>
-        <Button type='submit' variant='primary' disabled={!isValid}>
+        <Button type='submit' variant='primary' disabled={!isValid} size='s'>
           Изменить
         </Button>
       </div>

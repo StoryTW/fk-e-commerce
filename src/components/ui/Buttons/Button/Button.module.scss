@@ -5,9 +5,7 @@
   gap: 10px;
   border-radius: 8px;
   text-align: center;
-  padding: 8px 16px;
   cursor: pointer;
-  height: 42px;
   font-size: 16px;
 
   @include transition;
@@ -17,9 +15,15 @@
     color: var(--black);
   }
 
-  // &.s {
-  //   padding: 8px 16px;
-  // }
+  &.l {
+    padding: 8px 16px;
+    height: 42px;
+  }
+
+  &.s {
+    padding: 8px 48px;
+    height: 32px;
+  }
 
   &.fullWidth {
     width: 100%;

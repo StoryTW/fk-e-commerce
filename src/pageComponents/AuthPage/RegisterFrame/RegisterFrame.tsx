@@ -69,7 +69,7 @@ export const RegisterFrame = () => {
         {...register('password', formValidation.password)}
       />
 
-      <Button variant='primary' type='submit' disabled={isValid}>
+      <Button variant='primary' type='submit' disabled={isValid} size='l'>
         Зарегестрироваться
       </Button>
     </form>

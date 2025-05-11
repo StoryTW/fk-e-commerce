@@ -6,11 +6,11 @@ import { Spinner } from '../../Spinner/Spinner';
 
 export type ButtonVariants = 'primary';
 
-// export type ButtonSize = 's' | 'l';
+export type ButtonSize = 's' | 'l';
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant: ButtonVariants;
-  // size: ButtonSize;
+  size: ButtonSize;
   fullWidth?: boolean;
   isLoading?: boolean;
   type?: HTMLButtonElement['type'];
@@ -19,7 +19,7 @@ export const Button = forwardRef(
   (
     {
       variant = 'primary',
-      // size = 'l',
+      size = 'l',
       isLoading,
       type = 'button',
       className,
@@ -36,7 +36,7 @@ export const Button = forwardRef(
         className={clsx(
           styles.button,
           styles[variant],
-          // styles[size],
+          styles[size],
           className,
           {
             [styles.fullWidth]: fullWidth,
