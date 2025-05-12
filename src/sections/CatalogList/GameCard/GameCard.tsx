@@ -29,7 +29,7 @@ export const GameCard = ({ data }: IGameCard) => {
 
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
-          <Image src={data.img} alt='img' fill />
+          <Image src={data.img} alt='img' className={styles.img} fill />
         </div>
         <div className={styles.name}>{data.name}</div>
         <div className={styles.price}>{`${data.price} ${data.currency}`}</div>
