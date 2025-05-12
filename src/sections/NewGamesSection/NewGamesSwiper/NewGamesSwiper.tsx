@@ -18,12 +18,8 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
     <div className={styles.root}>
       <Swiper
         modules={[Pagination, EffectCards]}
-        // effect={'cards'}
-        effect={'coverflow'}
-        grabCursor={true}
-        slidesPerView={1.5}
-        loop={true}
-        spaceBetween={30}
+        effect={'cards'}
+        grabCursor
         className={styles.swiper}
         pagination={{
           clickableClass: styles.swiper_pagination,
@@ -31,14 +27,6 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
           bulletActiveClass: styles.activeBullet,
           clickable: true,
         }}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 200,
-          modifier: 2.5,
-          slideShadows: false,
-        }}
-        centeredSlides={true}
       >
         {data.map((banner, index) => {
           return (

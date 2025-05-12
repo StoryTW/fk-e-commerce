@@ -18,11 +18,12 @@ const NEW_DATA = [
     img: '/images/swiper_new/smurfs.png',
     href: '/',
   },
-]
+];
 
 export const NewGamesSection = () => {
   return (
     <section className={styles.root}>
+      <h2 className={styles.title}>Новинки на сайте:</h2>
       <NewGamesSwiper data={NEW_DATA} />
     </section>
   );

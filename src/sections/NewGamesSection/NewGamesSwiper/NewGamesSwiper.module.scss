@@ -3,17 +3,23 @@
   max-width: 1350px;
   margin: 0 auto;
   width: 100%;
+  margin-bottom: 48px;
+
+  :global(.swiper-slide-shadow),
+  :global(.swiper-slide-shadow-cards) {
+    display: none !important;
+  }
+}
+
+.swiper {
+  padding-bottom: 40px;
 }
 
 .swiper_pagination {
-  bottom: 56px !important;
+  bottom: 0px !important;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @include respond(mobileL) {
-    bottom: 16px !important;
-  }
 
   .bullet {
     cursor: pointer;
@@ -21,13 +27,13 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: var(--placeholder);
+    background-color: var(--gray);
     @include transition;
 
     &.activeBullet {
       width: 12px;
       height: 12px;
-      background-color: var(--white);
+      background-color: var(--aqua);
     }
   }
 
@@ -37,20 +43,6 @@
 }
 
 .slide {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  border-radius: 20px;
-  overflow: hidden;
-  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.swiper-slide-active {
-  transform: scale(1.1);
-  z-index: 2;
-  // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.swiper-slide-next,
-.swiper-slide-prev {
-  opacity: 0.6;
-  transform: scale(0.9);
+  display: flex;
+  justify-content: center;
 }
