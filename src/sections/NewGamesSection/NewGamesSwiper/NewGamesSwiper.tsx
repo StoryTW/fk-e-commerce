@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './NewGamesSwiper.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, EffectCards, EffectCoverflow } from 'swiper/modules';
+import { Pagination, EffectCoverflow } from 'swiper/modules';
 import Image from 'next/image';
 
 interface INewGamesSwiper {
