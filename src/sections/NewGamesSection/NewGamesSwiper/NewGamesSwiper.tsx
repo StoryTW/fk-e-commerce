@@ -34,7 +34,7 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
           rotate: 0,
           stretch: 0,
           depth: 150,
-          modifier: 6,
+          modifier: 7,
           slideShadows: false,
           scale: 1,
         }}
