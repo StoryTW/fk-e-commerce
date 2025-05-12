@@ -9,8 +9,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
-import 'swiper/css/effect-cards';
-// import 'swiper/css/thumbs';
+import 'swiper/css/effect-coverflow';
 import '@/assets/styles/index.scss';
 // import FaviconPng from '/public/favicon.png';
 

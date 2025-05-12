@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './NewGamesSwiper.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, EffectCards } from 'swiper/modules';
+import { Pagination, EffectCards, EffectCoverflow } from 'swiper/modules';
 import Image from 'next/image';
 
 interface INewGamesSwiper {
@@ -17,8 +17,8 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
   return (
     <div className={styles.root}>
       <Swiper
-        modules={[Pagination, EffectCards]}
-        effect={'cards'}
+        modules={[Pagination, EffectCoverflow]}
+        effect={'coverflow'}
         grabCursor
         className={styles.swiper}
         pagination={{
@@ -26,6 +26,17 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
           bulletClass: styles.bullet,
           bulletActiveClass: styles.activeBullet,
           clickable: true,
+        }}
+        centeredSlides
+        initialSlide={1}
+        slidesPerView='auto'
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 150,
+          modifier: 6,
+          slideShadows: false,
+          scale: 1,
         }}
       >
         {data.map((banner, index) => {
