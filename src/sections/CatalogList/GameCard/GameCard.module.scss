@@ -1,8 +1,8 @@
 .root {
+  position: relative;
   padding: 4px;
   background: var(--white_alpha);
   border-radius: 16px;
-  position: relative;
   z-index: 2;
 }
 
@@ -41,11 +41,4 @@
   &:hover {
     color: var(--aqua);
   }
-}
-
-.left {
-  position: absolute;
-  border: 1px solid red;
-  width: 200px;
-  height: 200px;
 }

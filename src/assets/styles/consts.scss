@@ -9,4 +9,11 @@
   --black: #000000;
   --pink: #e368e8;
   --blue_light: #38a7fc;
+
+  --bg_card: linear-gradient(
+    to right,
+    rgba(0, 28, 68, 0.95) 0%,
+    rgba(0, 51, 102, 0.8) 50%,
+    rgba(0, 28, 68, 0.1) 100%
+  );
 }

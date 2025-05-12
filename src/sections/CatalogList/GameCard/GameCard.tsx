@@ -2,41 +2,31 @@
 import React, { useState } from 'react';
 import styles from './GameCard.module.scss';
 import Image from 'next/image';
-import { AnimatePresence, motion } from 'motion/react';
-import { animateHelper } from '@/utils/helpers/animation.helper';
+import { AnimatePresence } from 'motion/react';
+import { LeftSide } from './LeftSide/LeftSide';
+import { RightSide } from './RightSide/RightSide';
 
 interface IGameCard {
   data: any;
 }
 
 export const GameCard = ({ data }: IGameCard) => {
-  const [isHover, setIsHover] = useState<boolean>(false);
+  const [isHoverLeft, setIsHoverLeft] = useState<boolean>(false);
+  const [isHoverRight, setIsHoverRight] = useState<boolean>(false);
 
   const handleMouseEnter = () => {
-    setIsHover(true);
+    setIsHoverLeft(true);
+    setIsHoverRight(true);
   };
   const handleMouseLeave = () => {
-    setIsHover(false);
+    setIsHoverLeft(false);
+    setIsHoverRight(false);
   };
 
   return (
     <div className={styles.root} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {isHover && (
-        <AnimatePresence>
-          <motion.div
-            variants={animateHelper('cardLeft')}
-            initial='hide'
-            animate='show'
-            exit='hide'
-            transition={{
-              duration: 0.5,
-            }}
-            className={styles.left}
-          >
-            <div>left</div>
-          </motion.div>
-        </AnimatePresence>
-      )}
+      <AnimatePresence mode='wait'>{isHoverLeft && <LeftSide />}</AnimatePresence>
+
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
           <Image src={data.img} alt='img' fill />
@@ -47,6 +37,8 @@ export const GameCard = ({ data }: IGameCard) => {
           Арендовать
         </button>
       </div>
+
+      <AnimatePresence mode='wait'>{isHoverRight && <RightSide />}</AnimatePresence>
     </div>
   );
 };
