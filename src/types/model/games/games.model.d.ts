@@ -2,6 +2,13 @@ declare interface PopularGamesModel {
   games: GameModel[];
 }
 
+declare interface GamesListModel {
+  games: GameModel[];
+  next_page: boolean;
+  has_more: boolean;
+  total: number;
+}
+
 declare interface GameModel {
   id: number;
   title: string;

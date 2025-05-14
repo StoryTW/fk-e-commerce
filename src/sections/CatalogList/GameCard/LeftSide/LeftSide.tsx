@@ -3,12 +3,11 @@ import styles from './LeftSide.module.scss';
 import { motion } from 'motion/react';
 import { animateHelper } from '@/utils/helpers/animation.helper';
 
-const data = {
-  date: '11.02.2025',
-  locale: 'Русский(интерфейс, субтитры)',
-};
+interface ILeftSide {
+  data: GameModel;
+}
 
-export const LeftSide = () => {
+export const LeftSide = ({ data }: ILeftSide) => {
   return (
     <motion.div
       variants={animateHelper('cardLeft')}
@@ -23,12 +22,12 @@ export const LeftSide = () => {
       <div className={styles.content}>
         <div className={styles.item}>
           <div className={styles.categoryText}>Дата выхода:</div>
-          <div className={styles.valueText}>{data.date}</div>
+          <div className={styles.valueText}>{data.date_exit}</div>
         </div>
 
         <div className={styles.item}>
           <div className={styles.categoryText}>Локализация:</div>
-          <div className={styles.valueText}>{data.locale}</div>
+          <div className={styles.valueText}>{data.language}</div>
         </div>
       </div>
     </motion.div>

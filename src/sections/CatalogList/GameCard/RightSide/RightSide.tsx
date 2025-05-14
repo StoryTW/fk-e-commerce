@@ -9,7 +9,11 @@ const data = {
   locale: 'Русский(интерфейс, субтитры)',
 };
 
-export const RightSide = () => {
+interface IRightSide {
+  data: GameModel;
+}
+
+export const RightSide = ({ data }: IRightSide) => {
   const handleAddToCart = () => {
     console.log('add');
   };
@@ -28,12 +32,12 @@ export const RightSide = () => {
       <div className={styles.content}>
         <div className={styles.item}>
           <div className={styles.categoryText}>Жанр:</div>
-          <div className={styles.valueText}>{data.genre}</div>
+          <div className={styles.valueText}>{data.genre_id}</div>
         </div>
 
         <div className={styles.item}>
-          <div className={styles.categoryText}>Локализация:</div>
-          <div className={styles.valueText}>{data.locale}</div>
+          <div className={styles.categoryText}>Аренда для:</div>
+          <div className={styles.valueText}>PS4 / PS5</div>
         </div>
 
         <Button variant='primary' size='l' onClick={handleAddToCart}>

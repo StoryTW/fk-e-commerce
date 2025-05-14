@@ -7,7 +7,7 @@ import { LeftSide } from './LeftSide/LeftSide';
 import { RightSide } from './RightSide/RightSide';
 
 interface IGameCard {
-  data: any;
+  data: GameModel;
 }
 
 export const GameCard = ({ data }: IGameCard) => {
@@ -25,20 +25,28 @@ export const GameCard = ({ data }: IGameCard) => {
 
   return (
     <div className={styles.root} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <AnimatePresence mode='wait'>{isHoverLeft && <LeftSide />}</AnimatePresence>
+      <AnimatePresence mode='wait'>{isHoverLeft && <LeftSide data={data} />}</AnimatePresence>
 
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
-          <Image src={data.img} alt='img' className={styles.img} fill />
+          <Image
+            src={
+              data?.preview.includes('https') ? data?.preview : `https://404game.ru${data?.preview}`
+            }
+            alt='img'
+            className={styles.img}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+            fill
+          />
         </div>
-        <div className={styles.name}>{data.name}</div>
-        <div className={styles.price}>{`${data.price} ${data.currency}`}</div>
+        <div className={styles.name}>{data?.title}</div>
+        <div className={styles.price}>{`${data?.price} руб`}</div>
         <button className={styles.btn} type='button' tabIndex={-1}>
           Арендовать
         </button>
       </div>
 
-      <AnimatePresence mode='wait'>{isHoverRight && <RightSide />}</AnimatePresence>
+      <AnimatePresence mode='wait'>{isHoverRight && <RightSide data={data} />}</AnimatePresence>
     </div>
   );
 };

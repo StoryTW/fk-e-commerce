@@ -17,6 +17,8 @@
   width: 297px;
   margin-bottom: 8px;
   z-index: 2;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .name {
@@ -36,6 +38,7 @@
   color: var(--white);
   text-align: center;
   font-size: 16px;
+  cursor: pointer;
 
   &:hover {
     color: var(--aqua);
