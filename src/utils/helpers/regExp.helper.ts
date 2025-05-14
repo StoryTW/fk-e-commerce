@@ -6,6 +6,10 @@ const regExpObject = {
 
   //Ввод без пробелов
   NO_SPACES: /\s/,
+
+  EMAIL: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+
+  ONE_LETTER: /[A-Za-zА-Яа-яЁё]/,
 };
 
 export const regExpHelper = (variant: IRegExpVariants): RegExp => regExpObject[variant];

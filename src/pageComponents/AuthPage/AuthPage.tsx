@@ -7,11 +7,6 @@ import { RegisterFrame } from '@/pageComponents/AuthPage/RegisterFrame/RegisterF
 import { LayoutGroup, motion } from 'motion/react';
 import clsx from 'clsx';
 
-const frame = {
-  [AuthFrameEnum.LOGIN]: <LoginFrame />,
-  [AuthFrameEnum.REGISTER]: <RegisterFrame />,
-};
-
 const NAV_DATA = [
   {
     frame: AuthFrameEnum.LOGIN,
@@ -25,6 +20,11 @@ const NAV_DATA = [
 
 export const AuthPage = () => {
   const [authFrame, setAuthFrame] = useState<AuthFrameEnum>(AuthFrameEnum.LOGIN);
+
+  const frame = {
+    [AuthFrameEnum.LOGIN]: <LoginFrame />,
+    [AuthFrameEnum.REGISTER]: <RegisterFrame setAuthFrame={setAuthFrame} />,
+  };
 
   const handleChangeFrame = (frame: AuthFrameEnum) => {
     setAuthFrame(frame);

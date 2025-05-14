@@ -1,16 +1,26 @@
 'use client';
 import React from 'react';
 import styles from './AccountIcons.module.scss';
-import IconCart from '@/assets/images/icon-cart.svg?react';
+// import IconCart from '@/assets/images/icon-cart.svg?react';
 import IconProfile from '@/assets/images/icon-profile.svg?react';
+import { getToken } from '@/utils/token';
+import { useRouter } from 'next/navigation';
 
 export const AccountIcons = () => {
-  const handleOpenCart = () => {
-    console.log('open cart');
-  };
+  const router = useRouter();
+
+  const token = getToken();
+
+  // const handleOpenCart = () => {
+  //   console.log('open cart');
+  // };
 
   const handleOpenProfile = () => {
-    console.log('open profile');
+    if (token) {
+      router.push('/account/cart');
+    } else {
+      router.push('/auth');
+    }
   };
 
   return (
@@ -18,10 +28,10 @@ export const AccountIcons = () => {
       <button tabIndex={-1} type='button' className={styles.btn} onClick={handleOpenProfile}>
         <IconProfile />
       </button>
-
+      {/* 
       <button tabIndex={-1} type='button' className={styles.btn} onClick={handleOpenCart}>
         <IconCart />
-      </button>
+      </button> */}
     </div>
   );
 };

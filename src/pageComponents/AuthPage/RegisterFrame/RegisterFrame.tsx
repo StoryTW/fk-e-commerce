@@ -3,6 +3,10 @@ import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from './RegisterFrame.module.scss';
 import { Button } from '@/components/ui/Buttons/Button/Button';
+import { useSignUp } from '@/hooks/query/auth/useSignUp';
+import { regExpHelper } from '@/utils/helpers/regExp.helper';
+import { AuthFrameEnum } from '@/utils/helpers/enums';
+import { toast } from 'react-toastify';
 
 type FormType = {
   name: string;
@@ -13,16 +17,28 @@ type FormType = {
 const formValidation = {
   name: {
     required: 'Поле обязательно к заполнению',
+    pattern: {
+      value: regExpHelper('ONE_LETTER'),
+      message: 'Имя должно содержать хотя бы одну букву',
+    },
   },
   email: {
     required: 'Поле обязательно к заполнению',
+    pattern: {
+      value: regExpHelper('EMAIL'),
+      message: 'Введите корректный email',
+    },
   },
   password: {
     required: 'Поле обязательно к заполнению',
+    minLength: {
+      value: 8,
+      message: 'Пароль должен быть не менее 8 символов',
+    },
   },
 };
 
-export const RegisterFrame = () => {
+export const RegisterFrame = ({ setAuthFrame }) => {
   const {
     formState: { errors, isValid },
     register,
@@ -36,8 +52,24 @@ export const RegisterFrame = () => {
     },
   });
 
+  const { mutate, isPending } = useSignUp({
+    onSuccess: (data) => {
+      if (data.message === 'success') {
+        setAuthFrame(AuthFrameEnum.LOGIN);
+        toast.success('Вы успешно зарегистрировались!');
+      }
+    },
+    onError: (err) => {
+      toast.error(err.message);
+    },
+  });
+
   const onSubmit: SubmitHandler<FormType> = (data) => {
-    console.log(data, 'dataRegister');
+    mutate({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    });
   };
 
   return (
@@ -69,7 +101,7 @@ export const RegisterFrame = () => {
         {...register('password', formValidation.password)}
       />
 
-      <Button variant='primary' type='submit' disabled={isValid} size='l'>
+      <Button variant='primary' type='submit' disabled={!isValid || isPending} size='l'>
         Зарегестрироваться
       </Button>
     </form>
