@@ -3,13 +3,12 @@ import React, { PropsWithChildren } from 'react';
 import styles from './AccountNav.module.scss';
 import Image from 'next/image';
 import { AccountNavbar } from './AccountNavbar/AccountNavbar';
-
-const data = {
-  rigesterDate: '03.05.2025',
-  email: 'example@example.ru',
-};
+import { useGetUser } from '@/hooks/query/account/useGetUser';
+import dayjs from 'dayjs';
 
 export const AccountNav = ({ children }: PropsWithChildren) => {
+  const { data, isLoading } = useGetUser();
+
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
@@ -19,8 +18,10 @@ export const AccountNav = ({ children }: PropsWithChildren) => {
             <div className={styles.profileIcon}>
               <Image src={'/images/profile.png'} alt='profile_icon' width={138} height={148} />
             </div>
-            <div className={styles.email}>{data.email}</div>
-            <div className={styles.rigisterDate}>{`Дата регистрации: ${data.rigesterDate}`}</div>
+            <div className={styles.email}>{isLoading ? 'Загрузка...' : data?.email}</div>
+            <div
+              className={styles.rigisterDate}
+            >{`Дата регистрации: ${isLoading ? 'Загрузка...' : dayjs(data?.created_at).format('DD.MM.YYYY')}`}</div>
             <AccountNavbar />
           </div>
         </div>

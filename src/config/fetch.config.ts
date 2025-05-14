@@ -1,3 +1,5 @@
+import { BASE_URL } from './axios.config';
+
 type MethodType = 'GET' | 'POST';
 
 interface IFetchRequest {
@@ -19,11 +21,10 @@ export default async function fetchConfig<T>({
   cache = undefined,
 }: IFetchRequest): Promise<IFetchResponse<T>> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`, {
+    const res = await fetch(`${BASE_URL}${url}`, {
       method: method,
       headers: {
         'Content-Type': 'application/json',
-        Project: 'steam.ru',
       } as HeadersInit,
       next: { revalidate },
       cache: cache,

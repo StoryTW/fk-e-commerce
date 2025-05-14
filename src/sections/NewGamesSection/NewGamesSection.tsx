@@ -1,30 +1,25 @@
 import React from 'react';
 import styles from './NewGamesSection.module.scss';
 import { NewGamesSwiper } from './NewGamesSwiper/NewGamesSwiper';
+import { GamesServerService } from '@/services/games/games.service';
 
-const NEW_DATA = [
-  {
-    name: '1',
-    img: '/images/swiper_new/jugglers.png',
-    href: '/',
-  },
-  {
-    name: '2',
-    img: '/images/swiper_new/atomic.png',
-    href: '/',
-  },
-  {
-    name: '3',
-    img: '/images/swiper_new/smurfs.png',
-    href: '/',
-  },
-];
+export default async function NewGamesSection() {
+  const { data, error } = await GamesServerService.popularGames(3600);
 
-export const NewGamesSection = () => {
+  if (error || !data?.games) {
+    return null;
+  }
+
+  const slicedGames = data.games.slice(0, 3).map((game) => ({
+    name: game.title,
+    img: game.preview,
+    href: game.id,
+  }));
+
   return (
     <section className={styles.root}>
       <h2 className={styles.title}>Новинки на сайте:</h2>
-      <NewGamesSwiper data={NEW_DATA} />
+      <NewGamesSwiper data={slicedGames} />
     </section>
   );
-};
+}

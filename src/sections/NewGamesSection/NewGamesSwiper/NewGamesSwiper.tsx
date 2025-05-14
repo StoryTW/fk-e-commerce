@@ -9,7 +9,7 @@ interface INewGamesSwiper {
   data: {
     name: string;
     img: string;
-    href: string;
+    href: number;
   }[];
 }
 
@@ -44,7 +44,9 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
             <SwiperSlide key={index} className={styles.slide}>
               <div className={styles.banner}>
                 <Image
-                  src={banner.img}
+                  src={
+                    banner.img.includes('https') ? banner.img : `https://404game.ru${banner.img}`
+                  }
                   width={817}
                   height={488}
                   className={styles.image}

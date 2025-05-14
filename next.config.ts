@@ -48,6 +48,16 @@ const nextConfig: NextConfig = {
   sassOptions: {
     additionalData: `@use "/src/assets/styles/mixins.scss" as *;`,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '404game.ru',
+        port: '',
+        pathname: '/uploads/**',
+      },
+    ],
+  },
   async redirects() {
     return [
       {
