@@ -30,7 +30,7 @@ const TOP_DATA = [
   },
 ]
 
-export const TopPaySection = () => {
+export default async function TopPaySection() {
   return (
     <section className={styles.root}>
       <h2 className={styles.title}>

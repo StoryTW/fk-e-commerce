@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './MainPage.module.scss';
-import { TopPaySection } from '@/sections/TopPaySection/TopPaySection';
 import { GenresSection } from '@/sections/GenresSection/GenresSection';
 import NewGamesSection from '@/sections/NewGamesSection/NewGamesSection';
 import CatalogList from '@/sections/CatalogList/CatalogList';
+import TopPaySection from '@/sections/TopPaySection/TopPaySection';
 
 export const MainPage = () => {
   return (
