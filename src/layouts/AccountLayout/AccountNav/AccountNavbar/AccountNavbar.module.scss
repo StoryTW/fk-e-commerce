@@ -1,6 +1,3 @@
-.root {
-}
-
 .item {
   color: var(--gray);
   font-size: 14px;
@@ -21,12 +18,14 @@
 }
 
 .logout {
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--red);
-  @include transition;
+  button {
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--red);
+    @include transition;
 
-  &:hover {
-    opacity: 0.75;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }

@@ -11,5 +11,5 @@ declare interface ChangePasswordModel {
 }
 
 declare interface LogoutModel {
-  
+  message: string;
 }

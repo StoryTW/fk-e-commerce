@@ -2,8 +2,11 @@
 import React from 'react';
 import styles from './AccountNavbar.module.scss';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
+import { useLogout } from '@/hooks/query/auth/useLogout';
+import { toast } from 'react-toastify';
+import { clearToken } from '@/utils/token';
 
 const DATA = [
   {
@@ -39,6 +42,27 @@ const DATA = [
 export const AccountNavbar = () => {
   const pathname = usePathname();
 
+  const router = useRouter();
+
+  const { mutate, isPending } = useLogout({
+    onSuccess: (data) => {
+      if (data.message) {
+        toast.success('Вы успешно вышли с аккаунта');
+
+        clearToken();
+
+        router.push('/');
+      }
+    },
+    onError: () => {
+      toast.error('Ошибка');
+    },
+  });
+
+  const handleLogout = () => {
+    mutate();
+  };
+
   return (
     <ul className={styles.root}>
       {DATA.map((item, index) => {
@@ -49,11 +73,17 @@ export const AccountNavbar = () => {
               [styles.active]: pathname === item.href,
             })}
           >
-            <Link href={item.href} className={styles.link}>{item.name}</Link>
+            <Link href={item.href} className={styles.link}>
+              {item.name}
+            </Link>
           </li>
         );
       })}
-      <li className={styles.logout}>Выход</li>
+      <li className={styles.logout}>
+        <button tabIndex={-1} type='button' onClick={handleLogout} disabled={isPending}>
+          Выход
+        </button>
+      </li>
     </ul>
   );
 };

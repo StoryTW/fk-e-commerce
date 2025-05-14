@@ -3,12 +3,9 @@ import { useMutation } from '@tanstack/react-query';
 
 export const KEY_LOGOUT = 'KEY_LOGOUT';
 
-export const useLogout = (options?: MutationOptions<AuthModel, BasicErrorModel, AuthDto>) =>
+export const useLogout = (options?: MutationOptions<LogoutModel, BasicErrorModel>) =>
   useMutation({
     mutationKey: [KEY_LOGOUT],
-    mutationFn: (data) =>
-      AuthService.logout({
-
-      }),
+    mutationFn: () => AuthService.logout(),
     ...options,
   });

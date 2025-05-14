@@ -7,7 +7,6 @@ import { regExpHelper } from '@/utils/helpers/regExp.helper';
 import { useSignIn } from '@/hooks/query/auth/useSignIn';
 import { toast } from 'react-toastify';
 import { setToken } from '@/utils/token';
-import { useRouter } from 'next/navigation';
 
 type FormType = {
   email: string;
@@ -32,8 +31,6 @@ const formValidation = {
 };
 
 export const LoginFrame = () => {
-  const router = useRouter();
-
   const {
     formState: { errors, isValid },
     register,
@@ -50,8 +47,7 @@ export const LoginFrame = () => {
     onSuccess: (data) => {
       if (data.access_token) {
         setToken(data.access_token);
-        toast.success('Вы успешно авторизовались!');
-        router.push('/');
+        window.location.href = 'http://localhost:3000'
       }
     },
     onError: (err) => {
