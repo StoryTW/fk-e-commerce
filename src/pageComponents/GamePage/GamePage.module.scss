@@ -32,6 +32,16 @@
   overflow: hidden;
 }
 
+.cashbackImgWrapper {
+  position: relative;
+}
+
+.cashbackImg {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+}
+
 .descriptionInfo {
   display: grid;
   grid-template-columns: minmax(320px, 1096px);

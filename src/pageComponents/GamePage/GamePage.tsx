@@ -52,16 +52,25 @@ export const GamePage = ({ serverData }: IGamePage) => {
               </div>
             </div>
           </div>
-          <div className={styles.imgWrapper}>
+          <div className={styles.cashbackImgWrapper}>
+            <div className={styles.imgWrapper}>
+              <Image
+                src={
+                  serverData?.preview.includes('https')
+                    ? serverData?.preview
+                    : `https://404game.ru${data?.preview}`
+                }
+                alt='img'
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px'
+                fill
+              />
+            </div>
             <Image
-              src={
-                serverData?.preview.includes('https')
-                  ? serverData?.preview
-                  : `https://404game.ru${data?.preview}`
-              }
-              alt='img'
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px'
-              fill
+              src={'/images/cashback_image.png'}
+              alt='cashback'
+              width={96}
+              height={91}
+              className={styles.cashbackImg}
             />
           </div>
           <div className={styles.right}>
