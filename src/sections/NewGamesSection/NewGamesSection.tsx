@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import styles from './NewGamesSection.module.scss';
 import { NewGamesSwiper } from './NewGamesSwiper/NewGamesSwiper';
 import { GamesServerService } from '@/services/games/games.service';

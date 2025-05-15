@@ -46,8 +46,14 @@
   font-weight: 400;
   color: var(--gray2);
 
-  span {
+  .answerTitle {
     color: var(--blue_light);
     font-weight: 700;
+  }
+
+  .answerText {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gray2);
   }
 }

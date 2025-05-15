@@ -12,8 +12,6 @@ export default async function CatalogList() {
     3600,
   );
 
-  console.log(data, 'data');
-
   if (error || !data?.games) {
     return null;
   }
