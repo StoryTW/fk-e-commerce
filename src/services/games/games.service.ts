@@ -39,4 +39,14 @@ export const GamesServerService = {
 
     return response;
   },
+
+  async gameById(params: GameByIdDto, revalidate?: number) {
+    const response = await fetchConfig<GameByIdModel>({
+      url: `/game/${params.id}`,
+      method: 'GET',
+      revalidate: revalidate,
+    });
+
+    return response;
+  },
 };

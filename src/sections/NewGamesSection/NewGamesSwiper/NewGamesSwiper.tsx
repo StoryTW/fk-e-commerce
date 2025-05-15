@@ -4,6 +4,7 @@ import styles from './NewGamesSwiper.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectCoverflow } from 'swiper/modules';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface INewGamesSwiper {
   data: {
@@ -42,7 +43,7 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
         {data.map((banner, index) => {
           return (
             <SwiperSlide key={index} className={styles.slide}>
-              <div className={styles.banner}>
+              <Link href={`/game/${banner.href}`} target='_blank' className={styles.banner}>
                 <Image
                   src={
                     banner.img.includes('https') ? banner.img : `https://404game.ru${banner.img}`
@@ -54,7 +55,7 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
                   sizes='100vw'
                   quality={100}
                 />
-              </div>
+              </Link>
             </SwiperSlide>
           );
         })}

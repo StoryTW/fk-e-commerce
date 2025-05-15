@@ -65,6 +65,11 @@ const nextConfig: NextConfig = {
         destination: '/account/cart',
         permanent: true,
       },
+      {
+        source: '/game',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 };

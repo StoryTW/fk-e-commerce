@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { AnimatePresence } from 'motion/react';
 import { LeftSide } from './LeftSide/LeftSide';
 import { RightSide } from './RightSide/RightSide';
+import Link from 'next/link';
 
 interface IGameCard {
   data: GameModel;
@@ -24,7 +25,13 @@ export const GameCard = ({ data }: IGameCard) => {
   };
 
   return (
-    <div className={styles.root} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Link
+      href={`/game/${data.id}`}
+      target='_blank'
+      className={styles.root}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <AnimatePresence mode='wait'>{isHoverLeft && <LeftSide data={data} />}</AnimatePresence>
 
       <div className={styles.wrapper}>
@@ -35,7 +42,7 @@ export const GameCard = ({ data }: IGameCard) => {
             }
             alt='img'
             className={styles.img}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px'
             fill
           />
         </div>
@@ -47,6 +54,6 @@ export const GameCard = ({ data }: IGameCard) => {
       </div>
 
       <AnimatePresence mode='wait'>{isHoverRight && <RightSide data={data} />}</AnimatePresence>
-    </div>
+    </Link>
   );
 };

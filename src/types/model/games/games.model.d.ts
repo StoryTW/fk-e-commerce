@@ -22,3 +22,7 @@ declare interface GameModel {
   created_at: string;
   updated_at: string;
 }
+
+declare interface GameByIdModel {
+  game: GameModel;
+}
