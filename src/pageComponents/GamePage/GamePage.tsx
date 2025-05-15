@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Buttons/Button/Button';
 import Link from 'next/link';
 import { getToken } from '@/utils/token';
 import { useHasHydrated } from '@/hooks/common/useHasHydrated';
+import { useCartStore } from '@/store/useCartStore';
 
 interface IGamePage {
   serverData: GameModel;
@@ -15,10 +16,17 @@ interface IGamePage {
 export const GamePage = ({ serverData }: IGamePage) => {
   const hasHydrated = useHasHydrated();
 
+  const addItem = useCartStore((state) => state.addItem);
+
   const token = getToken();
 
-  const handleAddToCart = () => {
-    console.log('add');
+  const handleAddToCart = (item: GameModel) => {
+    addItem({
+      id: String(item.id),
+      image: item.preview,
+      price: String(item.price),
+      title: item.title,
+    });
   };
 
   if (!hasHydrated) return null;
@@ -58,7 +66,7 @@ export const GamePage = ({ serverData }: IGamePage) => {
                 src={
                   serverData?.preview.includes('https')
                     ? serverData?.preview
-                    : `https://404game.ru${data?.preview}`
+                    : `https://404game.ru${serverData?.preview}`
                 }
                 alt='img'
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px'
@@ -81,7 +89,7 @@ export const GamePage = ({ serverData }: IGamePage) => {
               </div>
 
               <div className={styles.item}>
-                <Button variant='primary' size='l' onClick={handleAddToCart}>
+                <Button variant='primary' size='l' onClick={() => handleAddToCart(serverData)}>
                   Добавить в корзину
                 </Button>
               </div>

@@ -3,27 +3,30 @@ import React from 'react';
 import styles from './CartPage.module.scss';
 import { CartCard } from './CartCard/CartCard';
 import { CartOrder } from './CartOrder/CartOrder';
-
-const data = [
-  {
-    name: 'Lost Records: Bloom & Rage',
-    image: '/images/promocode_image.png',
-    price: '899 руб',
-  },
-  {
-    name: `Sid Meier's Civilization VII`,
-    image: '/images/promocode_image.png',
-    price: '999 руб',
-  },
-];
+import { useHasHydrated } from '@/hooks/common/useHasHydrated';
+import { useCartStore } from '@/store/useCartStore';
 
 export const CartPage = () => {
+  const hasHydrated = useHasHydrated();
+
+  const items = useCartStore((state) => state.items);
+
+  if (!hasHydrated) return null;
+
   return (
     <div className={styles.root}>
-      {!!data.length ? (
+      {!!items.length ? (
         <>
-          {data.map((item, index) => {
-            return <CartCard key={index} image={item.image} name={item.name} price={item.price} />;
+          {items.map((item, index) => {
+            return (
+              <CartCard
+                key={index}
+                id={item.id}
+                image={item.image}
+                name={item.title}
+                price={item.price}
+              />
+            );
           })}
           <CartOrder />
         </>

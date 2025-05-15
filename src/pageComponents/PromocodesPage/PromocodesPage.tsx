@@ -6,18 +6,8 @@ import { PromocodeCard } from './PromocodeCard/PromocodeCard';
 const data = [
   {
     image: '/images/promocode_image.png',
-    promocode: 'CAR10',
+    promocode: 'IGROMIR2025',
     value: '10%',
-  },
-  {
-    image: '/images/promocode_image.png',
-    promocode: 'CAR5',
-    value: '5%',
-  },
-  {
-    image: '/images/promocode_image.png',
-    promocode: 'CAR20',
-    value: '20%',
   },
 ];
 

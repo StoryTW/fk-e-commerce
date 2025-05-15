@@ -3,3 +3,8 @@
   flex-direction: column;
   gap: 16px;
 }
+
+.noItems {
+  display: flex;
+  justify-content: center;
+}

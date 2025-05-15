@@ -1,4 +1,3 @@
-import { MainLayout } from '@/layouts/MainLayout/MainLayout';
 import { GamePage } from '@/pageComponents/GamePage/GamePage';
 import { GamesServerService } from '@/services/games/games.service';
 import type { Metadata } from 'next';
