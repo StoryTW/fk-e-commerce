@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { useLogout } from '@/hooks/query/auth/useLogout';
 import { toast } from 'react-toastify';
 import { clearToken } from '@/utils/token';
+import { useCartStore } from '@/store/useCartStore';
 
 const DATA = [
   {
@@ -44,6 +45,8 @@ export const AccountNavbar = () => {
 
   const router = useRouter();
 
+  const clearCart = useCartStore((state) => state.clearCart);
+
   const { mutate, isPending } = useLogout({
     onSuccess: (data) => {
       if (data.message) {
@@ -61,6 +64,7 @@ export const AccountNavbar = () => {
 
   const handleLogout = () => {
     mutate();
+    clearCart();
   };
 
   return (

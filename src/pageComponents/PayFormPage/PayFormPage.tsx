@@ -6,7 +6,14 @@ export const PayFormPage = () => {
     <div className={styles.root}>
       <h1 className={styles.title}>Оплата товара</h1>
       <div className={styles.block}>
-        asdasd
+        <div className={styles.header}>
+          <div className={styles.text}>
+            Способы оплаты:
+          </div>
+          <div className={styles.tooltip}>
+            
+          </div>
+        </div>
       </div>
     </div>
   )

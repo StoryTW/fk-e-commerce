@@ -5,13 +5,20 @@ import { Button } from '@/components/ui/Buttons/Button/Button';
 import Link from 'next/link';
 import { useCartStore } from '@/store/useCartStore';
 import { formatPrice } from '@/utils/helpers/functions.helper';
+import { useRouter } from 'next/navigation';
 
 export const CartOrder = () => {
+  const router = useRouter();
+
   const items = useCartStore((state) => state.items);
 
   const sum = items.reduce((acc, item) => {
     return acc + (parseFloat(item.price) || 0);
   }, 0);
+
+  const handleNavigate = () => {
+    router.push('/payform');
+  };
 
   return (
     <div className={styles.root}>
@@ -25,7 +32,7 @@ export const CartOrder = () => {
           <div className={styles.sum}>0</div>
         </div>
         <div className={styles.submitBlock}>
-          <Button variant='primary' size='s'>
+          <Button variant='primary' size='s' onClick={handleNavigate}>
             Заказать
           </Button>
           <Link href={'/'} className={styles.link}>{`< Продолжить покупки`}</Link>
