@@ -1,0 +1,77 @@
+.form {
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.btnWrapper {
+  margin: 0 auto 16px;
+  max-width: 327px;
+}
+
+.btn {
+  width: 100%;
+  font-size: 24px !important;
+  padding: 24px !important;
+}
+
+.payInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.confirm_docs {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 327px;
+  text-align: center;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.priceText {
+  font-size: 18px;
+  color: var(--aqua);
+  font-weight: 600;
+  margin-bottom: 24px;
+  margin-right: 84px;
+}
+
+.priceValue {
+  font-size: 48px;
+  color: var(--aqua);
+  font-weight: 800;
+}
+
+.orderText {
+  font-size: 18px;
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.orderValue {
+  height: 55.19px;
+  overflow-y: auto;
+}
+
+.list {
+  list-style-type: decimal;
+  list-style: decimal;
+  padding-left: 32px;   
+
+  .listItem {
+    margin-right: 32px;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
