@@ -10,7 +10,7 @@ export const GamesService = {
     return await api.get<GamesListModel>('/games', {
       per_page: params.per_page ?? 12,
       page: params.page ?? 1,
-      genre_id: params.genre_id ?? '',
+      genre_id: params.genre_id ?? undefined,
     });
   },
 };

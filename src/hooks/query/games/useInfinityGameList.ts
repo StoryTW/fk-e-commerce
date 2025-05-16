@@ -18,7 +18,7 @@ export const useInfinityGameList = (
       GamesService.gameList({
         page: String(pageParam),
         per_page: perPage ?? '12',
-        genre_id: genre_id ?? '0',
+        genre_id: genre_id ?? undefined,
       }),
     getNextPageParam: (lastPage, allPages) => {
       if (lastPage.has_more) {

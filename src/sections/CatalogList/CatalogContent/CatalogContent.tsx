@@ -6,6 +6,7 @@ import { useInfinityGameList } from '@/hooks/query/games/useInfinityGameList';
 import { useElementOnScreen } from '@/hooks/common/useElementOnScreen';
 import { Spinner } from '@/components/ui/Spinner/Spinner';
 import { useGenresStore } from '@/store/useGenresStore';
+import { CatalogSkeleton } from './CatalogSkeleton/CatalogSkeleton';
 
 interface ICatalogContent {
   serverData: any;
@@ -27,10 +28,12 @@ export const CatalogContent = ({ serverData }: ICatalogContent) => {
       genre_id: activeGenre?.id ? String(activeGenre?.id) : undefined,
     },
     {
-      initialData: {
-        pages: [serverData],
-        pageParams: [1],
-      },
+      initialData: activeGenre?.id
+        ? undefined
+        : {
+            pages: [serverData],
+            pageParams: [1],
+          },
       staleTime: 1000 * 60 * 10, //10 min
     },
   );
@@ -50,7 +53,7 @@ export const CatalogContent = ({ serverData }: ICatalogContent) => {
   }, [isActiveAutoScroll]);
 
   if (isLoading) {
-    return <>Загрузка...</>;
+    return <CatalogSkeleton />;
   }
 
   return (
