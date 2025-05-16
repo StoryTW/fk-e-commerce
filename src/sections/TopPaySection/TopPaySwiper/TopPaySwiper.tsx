@@ -6,6 +6,7 @@ import { useSwiperRef } from '@/hooks/common/useSwiperRef';
 import styles from './TopPaySwiper.module.scss';
 import { SwiperButtons } from './SwiperButtons/SwiperButtons';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ITopPaySwiper {
   data: GameModel[];
@@ -29,7 +30,7 @@ export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
         {data.map((banner, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className={styles.banner}>
+              <Link href={`/game/${banner.id}`} className={styles.banner}>
                 <Image
                   src={
                     banner?.preview.includes('https')
@@ -43,7 +44,7 @@ export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px'
                   quality={100}
                 />
-              </div>
+              </Link>
             </SwiperSlide>
           );
         })}

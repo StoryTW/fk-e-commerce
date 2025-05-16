@@ -27,7 +27,6 @@ export const GameCard = ({ data }: IGameCard) => {
   return (
     <Link
       href={`/game/${data.id}`}
-      target='_blank'
       className={styles.root}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
