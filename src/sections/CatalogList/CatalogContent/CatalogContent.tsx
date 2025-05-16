@@ -5,12 +5,15 @@ import { GameCard } from '../GameCard/GameCard';
 import { useInfinityGameList } from '@/hooks/query/games/useInfinityGameList';
 import { useElementOnScreen } from '@/hooks/common/useElementOnScreen';
 import { Spinner } from '@/components/ui/Spinner/Spinner';
+import { useGenresStore } from '@/store/useGenresStore';
 
 interface ICatalogContent {
   serverData: any;
 }
 
 export const CatalogContent = ({ serverData }: ICatalogContent) => {
+  const activeGenre = useGenresStore((state) => state.activeGenre);
+
   const {
     data: clientData,
     fetchNextPage,
@@ -21,6 +24,7 @@ export const CatalogContent = ({ serverData }: ICatalogContent) => {
   } = useInfinityGameList(
     {
       perPage: '12',
+      genre_id: activeGenre?.id ? String(activeGenre?.id) : undefined,
     },
     {
       initialData: {

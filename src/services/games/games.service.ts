@@ -10,6 +10,7 @@ export const GamesService = {
     return await api.get<GamesListModel>('/games', {
       per_page: params.per_page ?? 12,
       page: params.page ?? 1,
+      genre_id: params.genre_id ?? '',
     });
   },
 };
@@ -29,6 +30,7 @@ export const GamesServerService = {
     const finalParams = new URLSearchParams({
       page: params.page ?? '1',
       per_page: params.per_page ?? '12',
+      genre_id: params.genre_id ?? '',
     }).toString();
 
     const response = await fetchConfig<GamesListModel>({
@@ -43,6 +45,16 @@ export const GamesServerService = {
   async gameById(params: GameByIdDto, revalidate?: number) {
     const response = await fetchConfig<GameByIdModel>({
       url: `/game/${params.id}`,
+      method: 'GET',
+      revalidate: revalidate,
+    });
+
+    return response;
+  },
+
+  async genres(revalidate?: number) {
+    const response = await fetchConfig<GetGenresModel>({
+      url: '/genres',
       method: 'GET',
       revalidate: revalidate,
     });

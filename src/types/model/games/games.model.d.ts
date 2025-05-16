@@ -26,3 +26,20 @@ declare interface GameModel {
 declare interface GameByIdModel {
   game: GameModel;
 }
+
+declare interface GetGenresModel {
+  games: GenreModel[];
+}
+
+declare interface GenreModel {
+  id: number;
+  name: string;
+  created_at: string;
+  updated_at: string;
+}
+
+declare interface GenreStaticModel {
+  id: number;
+  name: string;
+  img: import('react').ReactNode;
+}
