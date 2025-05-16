@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { animateHelper } from '@/utils/helpers/animation.helper';
 import { Button } from '@/components/ui/Buttons/Button/Button';
 import { useCartStore } from '@/store/useCartStore';
+import { GENRES_DATA } from '@/sections/GenresSection/GenresContent/GenresContent';
 
 interface IRightSide {
   data: GameModel;
@@ -25,6 +26,8 @@ export const RightSide = ({ data }: IRightSide) => {
     });
   };
 
+  const genreName = GENRES_DATA.find((item) => item.id === data.genre_id);
+
   return (
     <motion.div
       variants={animateHelper('cardRight')}
@@ -39,7 +42,7 @@ export const RightSide = ({ data }: IRightSide) => {
       <div className={styles.content}>
         <div className={styles.item}>
           <div className={styles.categoryText}>Жанр:</div>
-          <div className={styles.valueText}>{data.genre_id}</div>
+          <div className={styles.valueText}>{genreName?.name ?? 'Приключения'}</div>
         </div>
 
         <div className={styles.item}>

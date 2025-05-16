@@ -6,6 +6,7 @@ import { AnimatePresence } from 'motion/react';
 import { LeftSide } from './LeftSide/LeftSide';
 import { RightSide } from './RightSide/RightSide';
 import Link from 'next/link';
+import { useCartStore } from '@/store/useCartStore';
 
 interface IGameCard {
   data: GameModel;
@@ -14,6 +15,21 @@ interface IGameCard {
 export const GameCard = ({ data }: IGameCard) => {
   const [isHoverLeft, setIsHoverLeft] = useState<boolean>(false);
   const [isHoverRight, setIsHoverRight] = useState<boolean>(false);
+
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = (
+    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+    item: GameModel,
+  ) => {
+    e.preventDefault();
+    addItem({
+      id: String(item.id),
+      image: item.preview,
+      price: String(item.price),
+      title: item.title,
+    });
+  };
 
   const handleMouseEnter = () => {
     setIsHoverLeft(true);
@@ -47,7 +63,12 @@ export const GameCard = ({ data }: IGameCard) => {
         </div>
         <div className={styles.name}>{data?.title}</div>
         <div className={styles.price}>{`${data?.price} руб`}</div>
-        <button className={styles.btn} type='button' tabIndex={-1}>
+        <button
+          className={styles.btn}
+          type='button'
+          tabIndex={-1}
+          onClick={(e) => handleAddToCart(e, data)}
+        >
           Арендовать
         </button>
       </div>
