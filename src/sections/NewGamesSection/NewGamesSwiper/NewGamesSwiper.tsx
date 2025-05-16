@@ -43,7 +43,7 @@ export const NewGamesSwiper = ({ data }: INewGamesSwiper) => {
         {data.map((banner, index) => {
           return (
             <SwiperSlide key={index} className={styles.slide}>
-              <Link href={`/game/${banner.href}`} className={styles.banner}>
+              <Link href={`/popular/${banner.href}`} className={styles.banner}>
                 <Image
                   src={
                     banner.img.includes('https') ? banner.img : `https://404game.ru${banner.img}`

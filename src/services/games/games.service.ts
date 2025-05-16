@@ -52,6 +52,16 @@ export const GamesServerService = {
     return response;
   },
 
+  async popularGameById(params: GameByIdDto, revalidate?: number) {
+    const response = await fetchConfig<GameByIdModel>({
+      url: `/game_popular/${params.id}`,
+      method: 'GET',
+      revalidate: revalidate,
+    });
+
+    return response;
+  },
+
   async genres(revalidate?: number) {
     const response = await fetchConfig<GetGenresModel>({
       url: '/genres',
