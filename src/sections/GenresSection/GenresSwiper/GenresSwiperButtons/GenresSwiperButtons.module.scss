@@ -25,9 +25,16 @@
   &.prev {
     transform: rotate(180deg);
     left: -64px;
+
+    @include respond(laptopLL) {
+      left: -32px;
+    }
   }
 
   &.next {
     right: -64px;
+    @include respond(laptopLL) {
+      right: -32px;
+    }
   }
 }

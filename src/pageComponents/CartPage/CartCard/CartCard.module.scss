@@ -2,6 +2,10 @@
   position: relative;
   background-color: var(--white_alpha);
   border-radius: 24px;
+
+  @include respond(tabletL) {
+    padding-bottom: 50px;
+  }
 }
 
 .wrapper {
@@ -9,6 +13,10 @@
   display: flex;
   align-items: center;
   gap: 16px;
+
+  @include respond(tabletL) {
+    flex-direction: column;
+  }
 }
 
 .imgWrapper {
@@ -41,6 +49,10 @@
 
   &:hover {
     opacity: 0.5;
+  }
+
+  @include respond(mobileL) {
+    top: -50px;
   }
 }
 

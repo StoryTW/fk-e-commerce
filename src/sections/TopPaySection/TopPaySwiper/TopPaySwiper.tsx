@@ -20,7 +20,24 @@ export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
       <Swiper
         loop={true}
         modules={[Navigation]}
-        slidesPerView={3}
+        slidesPerView={'auto'}
+        breakpoints={{
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 8,
+          },
+          // when window width is >= 480px
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 12,
+          },
+        }}
         spaceBetween={12}
         className={styles.swiper}
         onBeforeInit={(swiper) => {

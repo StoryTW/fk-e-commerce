@@ -1,5 +1,6 @@
 .root {
   position: relative;
+  padding: 0 20px;
 
   &::before {
     content: '';
@@ -11,7 +12,9 @@
     z-index: -1;
 
     background-image: url('/images/bg_finger.png'), url('/images/bg_main.jpg');
-    background-position: center center, center bottom;
+    background-position:
+      center center,
+      center bottom;
     background-repeat: no-repeat, no-repeat;
     background-size: contain, cover;
   }

@@ -24,6 +24,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 48px;
+  flex-wrap: wrap;
 }
 
 .confirm_docs {
@@ -65,7 +66,7 @@
 .list {
   list-style-type: decimal;
   list-style: decimal;
-  padding-left: 32px;   
+  padding-left: 32px;
 
   .listItem {
     margin-right: 32px;

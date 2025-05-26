@@ -46,7 +46,7 @@ export const GenresSwiper = ({ data }: IGenresSwiper) => {
             },
             // when window width is >= 768px
             768: {
-              slidesPerView: 8,
+              slidesPerView: 9,
               spaceBetween: 12,
             },
             // when window width is >= 1024px
