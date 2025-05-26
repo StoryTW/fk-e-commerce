@@ -3,11 +3,11 @@ import { ROUTER } from '@/utils/router';
 import Link from 'next/link';
 import React from 'react';
 import styles from './Navbar.module.scss';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { LayoutGroup, motion } from 'motion/react';
 
-const DATA = [
+export const DATA = [
   {
     name: 'Главная',
     href: ROUTER.MAIN,

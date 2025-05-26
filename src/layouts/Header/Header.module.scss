@@ -10,11 +10,67 @@
   z-index: 101;
 }
 
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.burgerWrapper {
+  display: none;
+
+  .burger {
+    width: 48px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 13px;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    position: relative;
+
+    .burgerLine {
+      background: var(--white);
+      width: 20px;
+      height: 2px;
+      border-radius: 5px;
+    }
+
+    .closeLine {
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      border-radius: 5px;
+      background: var(--white);
+      top: 50%;
+      left: 50%;
+    }
+
+    .closeLine:nth-child(1) {
+      transform: translate(-50%, -50%) rotateZ(45deg);
+    }
+
+    .closeLine:nth-child(2) {
+      transform: translate(-50%, -50%) rotateZ(-45deg);
+    }
+  }
+
+  @include respond(laptopC) {
+    display: block;
+  }
+}
+
 .wrapper {
   padding: 2px 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include respond(laptopC) {
+    padding: 2px 50px;
+  }
 }
 
 .rightSide {

@@ -11,6 +11,7 @@ import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
 import '@/assets/styles/index.scss';
+import Menu from '@/layouts/Menu/Menu';
 // import FaviconPng from '/public/favicon.png';
 
 export const metadata: Metadata = {
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: RootLayoutType) {
       <body className={geometria.className}>
         <Providers>
           <Container>
+            <Menu />
             <Header />
             {children}
             <Footer />

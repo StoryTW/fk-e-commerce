@@ -24,40 +24,74 @@ export const GenresSwiper = ({ data }: IGenresSwiper) => {
 
   return (
     <div className={styles.root}>
-      <Swiper
-        modules={[Navigation]}
-        slidesPerView={14}
-        spaceBetween={12}
-        className={styles.swiper}
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
-        }}
-      >
-        {data.map((genre, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <div
-                className={clsx(styles.genre, {
-                  [styles.active]: genre.id === activeGenre?.id,
-                })}
-                onClick={() => changeGenre(genre)}
-              >
-                <div className={styles.imgWrapper}>
-                  <div
-                    className={clsx(styles.img, {
-                      [styles.active]: genre.id === activeGenre?.id,
-                    })}
-                  >
-                    {genre.img}
+      <div className={styles.content}>
+        <Swiper
+          modules={[Navigation]}
+          slidesPerView={'auto'}
+          breakpoints={{
+            // when window width is >= 320px
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 8,
+            },
+            // when window width is >= 480px
+            480: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 6,
+              spaceBetween: 12,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 8,
+              spaceBetween: 12,
+            },
+            // when window width is >= 1024px
+            1024: {
+              slidesPerView: 10,
+              spaceBetween: 12,
+            },
+            // when window width is >= 1280px
+            1280: {
+              slidesPerView: 14,
+              spaceBetween: 12,
+            },
+          }}
+          spaceBetween={12}
+          className={styles.swiper}
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+        >
+          {data.map((genre, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div
+                  className={clsx(styles.genre, {
+                    [styles.active]: genre.id === activeGenre?.id,
+                  })}
+                  onClick={() => changeGenre(genre)}
+                >
+                  <div className={styles.imgWrapper}>
+                    <div
+                      className={clsx(styles.img, {
+                        [styles.active]: genre.id === activeGenre?.id,
+                      })}
+                    >
+                      {genre.img}
+                    </div>
                   </div>
+                  <div className={styles.name}>{genre.name}</div>
                 </div>
-                <div className={styles.name}>{genre.name}</div>
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-      <GenresSwiperButtons handleNext={handleNext} handlePrev={handlePrev} />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+        <GenresSwiperButtons handleNext={handleNext} handlePrev={handlePrev} />
+      </div>
     </div>
   );
 };
