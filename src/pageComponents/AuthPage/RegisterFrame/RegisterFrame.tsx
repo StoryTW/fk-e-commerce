@@ -102,7 +102,7 @@ export const RegisterFrame = ({ setAuthFrame }) => {
       />
 
       <Button variant='primary' type='submit' disabled={!isValid || isPending} size='l'>
-        Зарегестрироваться
+        Зарегистрироваться
       </Button>
     </form>
   );

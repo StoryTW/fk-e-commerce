@@ -1,0 +1,52 @@
+.root {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+
+.wheelWrapper {
+  position: relative;
+}
+
+.circle2 {
+  position: absolute;
+  z-index: 10;
+  top: -30px;
+
+  animation: spin 14s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 8px;
+  height: 8px;
+  background: var(--aqua);
+  border-radius: 50%;
+}

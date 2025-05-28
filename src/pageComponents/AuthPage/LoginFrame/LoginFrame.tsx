@@ -7,6 +7,8 @@ import { regExpHelper } from '@/utils/helpers/regExp.helper';
 import { useSignIn } from '@/hooks/query/auth/useSignIn';
 import { toast } from 'react-toastify';
 import { setToken } from '@/utils/token';
+import { WHEEL_STORAGE } from '@/utils/constants';
+import Cookies from 'js-cookie';
 
 type FormType = {
   email: string;
@@ -47,6 +49,8 @@ export const LoginFrame = () => {
     onSuccess: (data) => {
       if (data.access_token) {
         setToken(data.access_token);
+        Cookies.set(WHEEL_STORAGE, '1', { expires: 1 });
+
         window.location.href = 'http://localhost:3000'
       }
     },

@@ -36,10 +36,12 @@
 
   &:disabled {
     cursor: not-allowed;
+    box-shadow: none;
     opacity: 0.2;
   }
 
   &.isLoading {
+    box-shadow: none;
     opacity: 1;
   }
 }
