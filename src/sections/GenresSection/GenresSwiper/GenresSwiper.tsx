@@ -31,7 +31,7 @@ export const GenresSwiper = ({ data }: IGenresSwiper) => {
           breakpoints={{
             // when window width is >= 320px
             320: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 8,
             },
             // when window width is >= 480px
