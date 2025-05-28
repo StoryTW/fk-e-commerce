@@ -1,5 +1,6 @@
 import { api } from '@/config/axios.config';
 import fetchConfig from '@/config/fetch.config';
+import { mockData } from './data';
 
 export const GamesService = {
   async popularGames() {
@@ -24,6 +25,10 @@ export const GamesServerService = {
     });
 
     return response;
+  },
+
+  async popularGamesMock() {
+    return mockData;
   },
 
   async gameList(params: GamesListDto, revalidate?: number) {

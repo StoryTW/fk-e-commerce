@@ -20,8 +20,15 @@ const responseBody = <T>(response: AxiosResponse<T>) => response.data;
 export const apiInvoice = {
   get: <T, TParams = undefined | any>(url: string, queryParams?: TParams) =>
     axiosInvoiceConfig.get<T>(url, { params: queryParams }).then(responseBody),
-  post: <T>(url: string, body?: Record<string, any>) =>
-    axiosInvoiceConfig.post<T>(url, body).then(responseBody),
+  post: <T>(url: string, body?: Record<string, any>, customHeaders?: Record<string, string>) =>
+    axiosInvoiceConfig
+      .post<T>(url, body, {
+        headers: {
+          ...axiosInvoiceConfig.defaults.headers.common,
+          ...customHeaders,
+        },
+      })
+      .then(responseBody),
   put: <T>(url: string, body?: Record<string, any>) =>
     axiosInvoiceConfig.put<T>(url, body).then(responseBody),
   delete: <T>(url: string) => axiosInvoiceConfig.delete<T>(url).then(responseBody),

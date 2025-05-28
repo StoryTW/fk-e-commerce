@@ -9,9 +9,8 @@ const ToastProvider: FC = () => (
     newestOnTop
     pauseOnFocusLoss
     draggable
-    pauseOnHover
-    autoClose={3000}
-    closeButton={false}
+    autoClose={1500}
+    closeButton
     theme='colored'
   />
 );

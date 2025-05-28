@@ -69,7 +69,7 @@ export const GameCard = ({ data }: IGameCard) => {
           tabIndex={-1}
           onClick={(e) => handleAddToCart(e, data)}
         >
-          Арендовать
+          Купить
         </button>
       </div>
 

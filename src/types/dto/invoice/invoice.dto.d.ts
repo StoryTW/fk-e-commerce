@@ -8,4 +8,5 @@ declare interface CreateInvoiceDto {
   notification_url?: string;
   success_url?: string;
   fail_url?: string;
+  metaDataPay?: string;
 }

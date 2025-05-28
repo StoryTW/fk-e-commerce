@@ -65,13 +65,13 @@ export const FormPay = () => {
   });
 
   const onSubmit: SubmitHandler<FormType> = (data) => {
-    const gameList = items.map((item) => item.title);
+    const metaData = `igromir pay email: ${data.email}`;
 
     mutate({
       amount: String(sum),
       order_id: uuid,
       payment_methods: ['h2h', 'card', 'sbp-a', 'sbp'],
-      comment: `Email: ${data.email}. Покупка на сайте igromir: ${gameList.join(', ')}`,
+      metaDataPay: metaData,
     });
   };
 
