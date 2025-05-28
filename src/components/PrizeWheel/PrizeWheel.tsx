@@ -103,6 +103,10 @@ export const PrizeWheel = () => {
       setPrizeNumber(newPrizeNumber);
       setMustSpin(true);
     }
+
+    if (spin === '0') {
+      toast.error('Вы исчерпали лимит попыток на сегодня');
+    }
   };
 
   const handleNavigate = () => {
@@ -173,7 +177,6 @@ export const PrizeWheel = () => {
         <Button
           variant='primary'
           size='s'
-          disabled={!token || Cookies.get(WHEEL_STORAGE) === '0'}
           onClick={token ? handleSpinClick : handleNavigate}
         >
           {token ? 'Испытать удачу' : 'Зарегистрироваться'}
