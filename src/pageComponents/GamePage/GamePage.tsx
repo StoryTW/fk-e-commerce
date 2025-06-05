@@ -8,6 +8,22 @@ import Link from 'next/link';
 import { getToken } from '@/utils/token';
 import { useHasHydrated } from '@/hooks/common/useHasHydrated';
 import { useCartStore } from '@/store/useCartStore';
+import { AnimatePresence, motion } from 'motion/react';
+
+const scaleVariants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: { opacity: 1, scale: 1 },
+};
+
+const leftVariants = {
+  hidden: { opacity: 0, x: '100%' },
+  visible: { opacity: 1, x: '0%' },
+};
+
+const rightVariants = {
+  hidden: { opacity: 0, x: '-100%'},
+  visible: { opacity: 1, x: '0'},
+};
 
 interface IGamePage {
   serverData: GameModel;
@@ -36,30 +52,38 @@ export const GamePage = ({ serverData }: IGamePage) => {
       <div className={styles.mainInfo}>
         <h2 className={styles.title}>{serverData.title}</h2>
         <div className={styles.mainContent}>
-          <div className={styles.left}>
-            <div className={styles.leftContent}>
-              <div className={styles.item}>
-                <div className={styles.categoryText}>Дата выхода:</div>
-                <div className={styles.valueText}>{serverData.date_exit}</div>
-              </div>
+          <AnimatePresence mode='wait'>
+            <motion.div
+              className={styles.left}
+              variants={leftVariants}
+              initial='hidden'
+              animate='visible'
+              transition={{ duration: 0.6 }}
+            >
+              <div className={styles.leftContent}>
+                <div className={styles.item}>
+                  <div className={styles.categoryText}>Дата выхода:</div>
+                  <div className={styles.valueText}>{serverData.date_exit}</div>
+                </div>
 
-              <div className={styles.item}>
-                <div className={styles.categoryText}>Локализация:</div>
-                <div className={styles.valueText}>{serverData.language}</div>
-              </div>
+                <div className={styles.item}>
+                  <div className={styles.categoryText}>Локализация:</div>
+                  <div className={styles.valueText}>{serverData.language}</div>
+                </div>
 
-              <div className={styles.item}>
-                <div className={styles.price}>{`${serverData.price} руб`}</div>
-              </div>
+                <div className={styles.item}>
+                  <div className={styles.price}>{`${serverData.price} руб`}</div>
+                </div>
 
-              <div className={styles.item}>
-                <div className={styles.advice}>
-                  Перед заказом игры уточните у наших менеджеров о прокате а так же технической
-                  части совместимости вашей PS
+                <div className={styles.item}>
+                  <div className={styles.advice}>
+                    Перед заказом игры уточните у наших менеджеров о прокате а так же технической
+                    части совместимости вашей PS
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
           <div className={styles.cashbackImgWrapper}>
             <div className={styles.imgWrapper}>
               <Image
@@ -81,32 +105,55 @@ export const GamePage = ({ serverData }: IGamePage) => {
               className={styles.cashbackImg}
             />
           </div>
-          <div className={styles.right}>
-            <div className={styles.rightContent}>
-              <div className={styles.item}>
-                <div className={styles.categoryText}>Аренда для:</div>
-                <div className={styles.valueText}>PS4 / PS5</div>
-              </div>
+          <AnimatePresence mode='wait'>
+            <motion.div
+              className={styles.right}
+              variants={rightVariants}
+              initial='hidden'
+              animate='visible'
+              transition={{ duration: 0.6 }}
+            >
+              <div className={styles.rightContent}>
+                <div className={styles.item}>
+                  <div className={styles.categoryText}>Аренда для:</div>
+                  <div className={styles.valueText}>PS4 / PS5</div>
+                </div>
 
-              <div className={styles.item}>
-                <Button variant='primary' size='l' onClick={() => handleAddToCart(serverData)}>
-                  Добавить в корзину
-                </Button>
-              </div>
+                <div className={styles.item}>
+                  <Button
+                    variant='primary'
+                    size='l'
+                    onClick={() => handleAddToCart(serverData)}
+                    disabled={!token}
+                  >
+                    Добавить в корзину
+                  </Button>
+                </div>
 
-              <div className={styles.item}>
-                <Link href={token ? '/account/cart' : '/auth'} className={styles.cashback}>
-                  Доступен <span>Cashback</span> для пользователей
-                </Link>
+                <div className={styles.item}>
+                  <Link href={token ? '/account/cart' : '/auth'} className={styles.cashback}>
+                    Доступен <span>Cashback</span> для пользователей
+                  </Link>
+                </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
       <div className={styles.descriptionInfo}>
         <h2 className={styles.title}>Описание:</h2>
-        <div className={styles.descriptionContent}>{serverData.description}</div>
+        <AnimatePresence mode='wait'>
+          <motion.div
+            initial='hidden'
+            animate='visible'
+            variants={scaleVariants}
+            className={styles.descriptionContent}
+            transition={{ duration: 0.6 }}
+          >
+            {serverData.description}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       <AboutSection />

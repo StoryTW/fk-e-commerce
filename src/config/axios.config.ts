@@ -1,7 +1,7 @@
 import { getToken } from '@/utils/token';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
-export const BASE_URL = 'http://83.217.220.231/api';
+export const BASE_URL = 'https://api.onmir.ru/api';
 
 //Использовать для серверных запросов
 export const axiosConfig = axios.create({
