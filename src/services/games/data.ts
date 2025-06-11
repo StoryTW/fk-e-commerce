@@ -26,32 +26,32 @@ export const mockTopGamesData = {
       {
         href: 4,
         name: 'Assassin’s Creed Valhalla',
-        img: '/images/top/assasin.png',
+        img: '/images/top/assasin_s.jpg',
       },
       {
         href: 5,
         name: 'Demons Souls',
-        img: '/images/top/demons.png',
+        img: '/images/top/demons_s.jpg',
       },
       {
         href: 6,
         name: 'Control',
-        img: '/images/top/control.png',
+        img: '/images/top/control_s.jpg',
       },
       {
         href: 7,
         name: 'Forza Horizon 5',
-        img: '/images/top/forzahorizon5.jpg',
+        img: '/images/top/forzahorizon5_s.jpg',
       },
       {
         href: 8,
         name: 'Mortal Combat 11',
-        img: '/images/top/mortal.jpg',
+        img: '/images/top/mortal_s.jpg',
       },
       {
         href: 9,
         name: 'Chernobylite',
-        img: '/images/top/chernobil.jpg',
+        img: '/images/top/chernobil_s.jpg',
       },
     ],
   },
