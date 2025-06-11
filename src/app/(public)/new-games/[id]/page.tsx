@@ -10,12 +10,9 @@ interface IGameParams {
 export async function generateMetadata({ params }: IGameParams): Promise<Metadata> {
   const id = (await params).id;
 
-  const { data } = await GamesServerService.popularGameById(
-    {
-      id: id,
-    },
-    3600,
-  );
+  const { data } = await GamesServerService.gameByIdMock({
+    id: id,
+  });
 
   return {
     title: data?.game?.title,
@@ -23,19 +20,16 @@ export async function generateMetadata({ params }: IGameParams): Promise<Metadat
   };
 }
 
-export default async function PopularGame({ params }: IGameParams) {
+export default async function Game({ params }: IGameParams) {
   const id = (await params).id;
 
-  const { data } = await GamesServerService.popularGameById(
-    {
-      id: id,
-    },
-    3600,
-  );
+  const { data } = await GamesServerService.gameByIdMock({
+    id: id,
+  });
 
   if (!data) {
     notFound();
   }
 
-  return <GamePage serverData={data.game} />;
+  return <GamePage serverData={data.game as any} fromSwiper />;
 }

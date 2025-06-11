@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, Suspense } from 'react';
+import React, { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { useSwiperRef } from '@/hooks/common/useSwiperRef';
@@ -9,7 +9,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface ITopPaySwiper {
-  data: GameModel[];
+  data: {
+    name: string;
+    img: string;
+    href: number;
+  }[];
 }
 
 export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
@@ -47,13 +51,9 @@ export const TopPaySwiper: FC<ITopPaySwiper> = ({ data }) => {
         {data.map((banner, index) => {
           return (
             <SwiperSlide key={index}>
-              <Link href={`/game/${banner.id}`} className={styles.banner}>
+              <Link href={`/top-games/${banner.href}`} className={styles.banner}>
                 <Image
-                  src={
-                    banner?.preview.includes('https')
-                      ? banner?.preview
-                      : `https://404game.ru${banner?.preview}`
-                  }
+                  src={banner?.img}
                   width={450}
                   height={140}
                   className={styles.image}

@@ -21,15 +21,16 @@ const leftVariants = {
 };
 
 const rightVariants = {
-  hidden: { opacity: 0, x: '-100%'},
-  visible: { opacity: 1, x: '0'},
+  hidden: { opacity: 0, x: '-100%' },
+  visible: { opacity: 1, x: '0' },
 };
 
 interface IGamePage {
   serverData: GameModel;
+  fromSwiper?: boolean;
 }
 
-export const GamePage = ({ serverData }: IGamePage) => {
+export const GamePage = ({ serverData, fromSwiper = false }: IGamePage) => {
   const hasHydrated = useHasHydrated();
 
   const addItem = useCartStore((state) => state.addItem);
@@ -43,6 +44,14 @@ export const GamePage = ({ serverData }: IGamePage) => {
       price: String(item.price),
       title: item.title,
     });
+  };
+
+  const imgDeterminate = () => {
+    if (fromSwiper || serverData?.preview.includes('https')) {
+      return serverData.preview;
+    }
+
+    return `https://404game.ru${serverData?.preview}`
   };
 
   if (!hasHydrated) return null;
@@ -87,11 +96,7 @@ export const GamePage = ({ serverData }: IGamePage) => {
           <div className={styles.cashbackImgWrapper}>
             <div className={styles.imgWrapper}>
               <Image
-                src={
-                  serverData?.preview.includes('https')
-                    ? serverData?.preview
-                    : `https://404game.ru${serverData?.preview}`
-                }
+                src={imgDeterminate()}
                 alt='img'
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px'
                 fill

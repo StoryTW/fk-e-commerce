@@ -1,6 +1,6 @@
 import { api } from '@/config/axios.config';
 import fetchConfig from '@/config/fetch.config';
-import { mockData } from './data';
+import { mockNewGamesData, mockSwiperData, mockTopGamesData } from './data';
 
 export const GamesService = {
   async popularGames() {
@@ -28,7 +28,11 @@ export const GamesServerService = {
   },
 
   async popularGamesMock() {
-    return mockData;
+    return mockNewGamesData;
+  },
+
+  async topGamesMock() {
+    return mockTopGamesData;
   },
 
   async gameList(params: GamesListDto, revalidate?: number) {
@@ -55,6 +59,14 @@ export const GamesServerService = {
     });
 
     return response;
+  },
+
+  async gameByIdMock(params: GameByIdDto) {
+    const currentGame = mockSwiperData.data.games.find(
+      (item) => String(item.id) === String(params.id),
+    );
+
+    return { data: { game: currentGame } };
   },
 
   async popularGameById(params: GameByIdDto, revalidate?: number) {

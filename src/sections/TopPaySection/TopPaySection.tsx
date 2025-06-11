@@ -4,15 +4,9 @@ import { TopPaySwiper } from './TopPaySwiper/TopPaySwiper';
 import { GamesServerService } from '@/services/games/games.service';
 
 export default async function TopPaySection() {
-  const { data, error } = await GamesServerService.gameList(
-    {
-      page: '31',
-      per_page: '6',
-    },
-    3600,
-  );
+  const { data } = await GamesServerService.topGamesMock();
 
-  if (error || !data?.games) {
+  if (!data?.games) {
     return null;
   }
 
