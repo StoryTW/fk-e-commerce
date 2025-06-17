@@ -1,6 +1,7 @@
 .root {
   background-color: var(--white_alpha);
   border-radius: 24px;
+  backdrop-filter: blur(4px);
 }
 
 .wrapper {

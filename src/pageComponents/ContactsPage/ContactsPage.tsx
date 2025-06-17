@@ -19,7 +19,10 @@ export const ContactsPage = () => {
                 className={styles.icon1}
               />
               <div className={styles.text1}>
-                <span>Почта:</span> igro_mirsupp@mail.ru
+                <span>Почта:</span>{' '}
+                <a href='mailto:igro_mirsupp@mail.ru' target='_blank'>
+                  igro_mirsupp@mail.ru
+                </a>
               </div>
               <div className={styles.description}>Моментальный ответ</div>
             </div>
@@ -48,7 +51,10 @@ export const ContactsPage = () => {
                 className={styles.icon4}
               />
               <div className={styles.text1}>
-                <span>Telegram:</span> t.me/IgromirSup
+                <span>Telegram:</span>{' '}
+                <a href='http://t.me/IgromirSup' target='_blank'>
+                  t.me/IgromirSup
+                </a>
               </div>
               <div className={styles.description}>Онлайн 24/7</div>
             </div>
