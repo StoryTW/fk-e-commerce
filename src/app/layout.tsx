@@ -12,15 +12,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
 import '@/assets/styles/index.scss';
 import Menu from '@/layouts/Menu/Menu';
-// import FaviconPng from '/public/favicon.png';
+import Favicon from '/public/favicon.png';
 
 export const metadata: Metadata = {
   title: 'Игромир',
   description: 'Игромир',
-  // icons: {
-  //   icon: FaviconPng.src,
-  //   apple: FaviconPng.src,
-  // },
+  icons: {
+    icon: Favicon.src,
+    apple: Favicon.src,
+  },
 };
 
 const geometria = localFont({

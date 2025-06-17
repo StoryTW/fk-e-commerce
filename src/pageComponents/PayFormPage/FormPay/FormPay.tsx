@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './FormPay.module.scss';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { regExpHelper } from '@/utils/helpers/regExp.helper';
@@ -6,7 +6,6 @@ import { InputBase } from '@/components/ui/Inputs/InputBase/InputBase';
 import { Button } from '@/components/ui/Buttons/Button/Button';
 import { useCartStore } from '@/store/useCartStore';
 import { formatPrice } from '@/utils/helpers/functions.helper';
-import { v4 as uuidv4 } from 'uuid';
 import { useCreateInvoice } from '@/hooks/query/invoice/useCreateInvoice';
 
 type FormType = {
@@ -28,8 +27,6 @@ const formValidation = {
 };
 
 export const FormPay = () => {
-  const [uuid, setUuid] = useState('');
-
   const items = useCartStore((state) => state.items);
   const clearCart = useCartStore((state) => state.clearCart);
 
@@ -49,12 +46,6 @@ export const FormPay = () => {
     return acc + (parseFloat(item.price) || 0);
   }, 0);
 
-  const handleGenerateUUID = () => {
-    const newUuid = uuidv4();
-
-    setUuid(newUuid);
-  };
-
   const { mutate, isPending } = useCreateInvoice({
     onSuccess: (data) => {
       if (data.payment_url) {
@@ -65,19 +56,11 @@ export const FormPay = () => {
   });
 
   const onSubmit: SubmitHandler<FormType> = (data) => {
-    const metaData = `igromir pay email: ${data.email}`;
-
     mutate({
       amount: String(sum),
-      order_id: uuid,
-      payment_methods: ['h2h', 'card', 'sbp-a', 'sbp'],
-      metaDataPay: metaData,
+      email: data.email,
     });
   };
-
-  useEffect(() => {
-    handleGenerateUUID();
-  }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>

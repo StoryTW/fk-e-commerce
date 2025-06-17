@@ -9,19 +9,9 @@ export const useCreateInvoice = (
   useMutation({
     mutationKey: [KEY_CREATE_INVOICE],
     mutationFn: (data) =>
-      InvoiceService.createInvoice(
-        {
-          order_id: data?.order_id,
-          amount: data?.amount,
-          comment: data?.comment,
-          currency: data?.currency,
-          fail_url: data?.fail_url,
-          notification_url: data?.notification_url,
-          site_account: data?.site_account,
-          success_url: data?.success_url,
-          payment_methods: data?.payment_methods,
-        },
-        data?.metaDataPay ?? '',
-      ),
+      InvoiceService.createInvoice({
+        amount: data?.amount,
+        email: data?.email,
+      }),
     ...options,
   });
