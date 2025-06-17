@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { Onest } from 'next/font/google';
 import { Header } from '@/layouts/Header/Header';
 import { Providers } from '@/providers/Providers';
 import { ReactNode } from 'react';
@@ -13,6 +14,7 @@ import '@/assets/styles/index.scss';
 import Menu from '@/layouts/Menu/Menu';
 import Favicon from '/public/favicon.png';
 import { Socials } from '@/components/Socials/Socials';
+import clsx from 'clsx';
 
 export const metadata: Metadata = {
   title: 'Игромир',
@@ -63,6 +65,13 @@ const geometria = localFont({
   ],
 });
 
+const onestFont = Onest({
+  variable: '--font-onest',
+  subsets: ['cyrillic', 'latin'],
+  style: ['normal'],
+  preload: true,
+});
+
 type RootLayoutType = Readonly<{
   children: ReactNode;
 }>;
@@ -70,7 +79,7 @@ type RootLayoutType = Readonly<{
 export default function RootLayout({ children }: RootLayoutType) {
   return (
     <html lang='ru'>
-      <body className={geometria.className}>
+      <body className={clsx(geometria.className, onestFont.variable)}>
         <Providers>
           <Container>
             <Menu />

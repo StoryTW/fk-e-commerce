@@ -24,10 +24,6 @@ export const DATA = [
     name: 'Часто задаваемые вопросы',
     href: ROUTER.FAQ,
   },
-  // {
-  //   name: 'Новинки',
-  //   href: ROUTER.NEW,
-  // },
   {
     name: 'Контакты',
     href: ROUTER.CONTACS,
