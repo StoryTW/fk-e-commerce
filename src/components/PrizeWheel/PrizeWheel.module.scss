@@ -1,6 +1,17 @@
 .root {
   display: flex;
   justify-content: center;
+
+  canvas {
+    @include transition;
+  }
+
+  &:hover {
+    canvas {
+      transform: rotate(45deg);
+      @include transition;
+    }
+  }
 }
 
 .content {
@@ -22,21 +33,14 @@
   animation: spin 14s linear infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 .circle {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+
+  animation: spin2 12s linear infinite;
 }
 
 .dot {
@@ -49,4 +53,22 @@
   height: 8px;
   background: var(--aqua);
   border-radius: 50%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
