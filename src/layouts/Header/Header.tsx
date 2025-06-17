@@ -15,7 +15,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 72) {
+      if (window.scrollY > 132) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
