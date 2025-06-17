@@ -14,7 +14,7 @@ const Menu = () => {
 
   const isOpen = useBurgerStore((state) => state.isOpen);
 
-  if (!isOpen) return;
+  if (!isOpen) return null;
 
   return (
     <AnimatePresence mode='wait'>

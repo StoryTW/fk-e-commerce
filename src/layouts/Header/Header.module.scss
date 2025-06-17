@@ -8,6 +8,10 @@
   max-width: 1920px;
   width: 100%;
   z-index: 101;
+
+  &.scroll {
+    backdrop-filter: blur(10px);
+  }
 }
 
 .left {

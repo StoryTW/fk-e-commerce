@@ -3,7 +3,6 @@ import localFont from 'next/font/local';
 import { Header } from '@/layouts/Header/Header';
 import { Providers } from '@/providers/Providers';
 import { ReactNode } from 'react';
-import { Footer } from '@/layouts/Footer/Footer';
 import { Container } from '@/components/ui/Container/Container';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -13,6 +12,7 @@ import 'swiper/css/effect-coverflow';
 import '@/assets/styles/index.scss';
 import Menu from '@/layouts/Menu/Menu';
 import Favicon from '/public/favicon.png';
+import { Socials } from '@/components/Socials/Socials';
 
 export const metadata: Metadata = {
   title: 'Игромир',
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: RootLayoutType) {
             <Menu />
             <Header />
             {children}
-            <Footer />
+            <Socials />
           </Container>
         </Providers>
       </body>

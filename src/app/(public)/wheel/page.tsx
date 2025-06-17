@@ -10,7 +10,7 @@ export default function Wheel() {
   return (
     <div
       style={{
-        paddingTop: 80,
+        paddingTop: 120,
       }}
     >
       <WheelPage />

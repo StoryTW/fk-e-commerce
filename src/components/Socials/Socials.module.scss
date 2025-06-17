@@ -1,0 +1,29 @@
+.root {
+  position: fixed;
+  bottom: 26px;
+  right: 96px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  a,
+  div {
+    svg {
+      color: var(--gray);
+      width: 36px;
+      height: 36px;
+      @include transition;
+    }
+
+    &:hover {
+      svg {
+        width: 36px;
+        height: 36px;
+        color: var(--aqua);
+      }
+    }
+  }
+}
