@@ -7,14 +7,14 @@ import { LeftSide } from './LeftSide/LeftSide';
 import { RightSide } from './RightSide/RightSide';
 import Link from 'next/link';
 import { useCartStore } from '@/store/useCartStore';
-import { getToken } from '@/utils/token';
+// import { getToken } from '@/utils/token';
 
 interface IGameCard {
   data: GameModel;
 }
 
 export const GameCard = ({ data }: IGameCard) => {
-  const token = getToken();
+  // const token = getToken();
 
   const [isHoverLeft, setIsHoverLeft] = useState<boolean>(false);
   const [isHoverRight, setIsHoverRight] = useState<boolean>(false);
@@ -72,7 +72,7 @@ export const GameCard = ({ data }: IGameCard) => {
           type='button'
           tabIndex={-1}
           onClick={(e) => handleAddToCart(e, data)}
-          disabled={!token}
+          // disabled={!token}
         >
           Купить
         </button>

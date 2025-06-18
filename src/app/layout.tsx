@@ -87,6 +87,7 @@ export default function RootLayout({ children }: RootLayoutType) {
             {children}
             <Socials />
           </Container>
+          <div id='tooltipPortal' />
         </Providers>
       </body>
     </html>

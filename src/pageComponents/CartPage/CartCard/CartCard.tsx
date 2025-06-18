@@ -22,7 +22,8 @@ export const CartCard = ({ image, name, price, id }: ICartCard) => {
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
           <Image
-            src={image.includes('https') ? image : `https://404game.ru${image}`}
+            // src={image.includes('https') ? image : `https://404game.ru${image}`}
+            src={image}
             alt='img'
             width={292}
             height={176}

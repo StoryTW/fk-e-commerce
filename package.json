@@ -11,11 +11,13 @@
   "dependencies": {
     "@tanstack/react-query": "^5.74.4",
     "axios": "^1.8.4",
+    "dompurify": "^3.2.6",
     "immer": "^10.1.1",
     "js-cookie": "^3.0.5",
     "motion": "^12.7.4",
     "next": "15.2.2",
     "persist": "^0.2.7",
+    "radix-ui": "^1.4.2",
     "react": "^19.0.0",
     "react-custom-roulette": "^1.4.1",
     "react-dom": "^19.0.0",

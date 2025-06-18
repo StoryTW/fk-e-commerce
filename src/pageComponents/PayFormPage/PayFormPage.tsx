@@ -4,6 +4,7 @@ import styles from './PayFormPage.module.scss';
 import Image from 'next/image';
 import { LayoutGroup, motion } from 'motion/react';
 import { FormPay } from './FormPay/FormPay';
+import { TooltipRadix } from '@/components/ui/Tooltip/Tooltip';
 
 const METHODS_DATA = [
   {
@@ -47,7 +48,37 @@ export const PayFormPage = () => {
       <div className={styles.block}>
         <div className={styles.header}>
           <div className={styles.text}>Способы оплаты:</div>
-          <div className={styles.tooltip}>Инструкция к получению</div>
+          <div className={styles.tooltip}>
+            Инструкция к получению
+            <TooltipRadix
+              content={
+                <div className={styles.tooltipContent}>
+                  Все дальнейшие инструкции по подключению аккаунта с игрой будут отправлены Вам на
+                  эл. почту.
+                  <br />
+                  <br />
+                  Убедительная просьба проверяйте корректность указаной Вами эл. почты.
+                  <br />
+                  <br />
+                  В случае возникновения вопросов или не корректного заполнения полей Вы можете
+                  обратиться в Наш саппорт:
+                  <br />
+                  <br />
+                  <a href='http://t.me/IgromirSup' target='_blank' rel='noopener noreferrer'>
+                    t.me/IgromirSup
+                  </a>
+                </div>
+              }
+              trigger={
+                <Image
+                  src={'/images/icon_question_mark.png'}
+                  width={27}
+                  height={27}
+                  alt='question_mark'
+                />
+              }
+            />
+          </div>
         </div>
 
         <div className={styles.methods}>

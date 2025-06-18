@@ -56,6 +56,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'igroarenda.ru',
+        port: '',
+        pathname: '/image/**',
+      }
     ],
   },
   async redirects() {

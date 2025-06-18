@@ -49,7 +49,8 @@ export const FormPay = () => {
   const { mutate, isPending } = useCreateInvoice({
     onSuccess: (data) => {
       if (data.payment_url) {
-        window.open(`${data.payment_url}`);
+        // window.open(`${data.payment_url}`);
+        window.location.href = data.payment_url;
         clearCart();
       }
     },

@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './GamePage.module.scss';
 import { AboutSection } from '@/sections/AboutSection/AboutSection';
 import Image from 'next/image';
@@ -31,6 +31,8 @@ interface IGamePage {
 }
 
 export const GamePage = ({ serverData, fromSwiper = false }: IGamePage) => {
+  const [cleanHtml, setCleanHtml] = useState<string>('');
+
   const hasHydrated = useHasHydrated();
 
   const addItem = useCartStore((state) => state.addItem);
@@ -46,13 +48,18 @@ export const GamePage = ({ serverData, fromSwiper = false }: IGamePage) => {
     });
   };
 
-  const imgDeterminate = () => {
-    if (fromSwiper || serverData?.preview.includes('https')) {
-      return serverData.preview;
-    }
+  useEffect(() => {
+    (async () => {
+      const DOMPurify = (await import('dompurify')).default;
 
-    return `https://404game.ru${serverData?.preview}`
-  };
+      setCleanHtml(
+        DOMPurify.sanitize(serverData.description, {
+          FORBID_ATTR: ['style'],
+          FORBID_TAGS: ['style', 'hr', 'blockquote'],
+        }),
+      );
+    })();
+  }, [serverData]);
 
   if (!hasHydrated) return null;
 
@@ -96,7 +103,7 @@ export const GamePage = ({ serverData, fromSwiper = false }: IGamePage) => {
           <div className={styles.cashbackImgWrapper}>
             <div className={styles.imgWrapper}>
               <Image
-                src={imgDeterminate()}
+                src={serverData.preview}
                 alt='img'
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px'
                 fill
@@ -148,17 +155,31 @@ export const GamePage = ({ serverData, fromSwiper = false }: IGamePage) => {
 
       <div className={styles.descriptionInfo}>
         <h2 className={styles.title}>Описание:</h2>
-        <AnimatePresence mode='wait'>
-          <motion.div
-            initial='hidden'
-            animate='visible'
-            variants={scaleVariants}
-            className={styles.descriptionContent}
-            transition={{ duration: 0.6 }}
-          >
-            {serverData.description}
-          </motion.div>
-        </AnimatePresence>
+        {fromSwiper ? (
+          <AnimatePresence mode='wait'>
+            <motion.div
+              initial='hidden'
+              animate='visible'
+              variants={scaleVariants}
+              className={styles.descriptionContent}
+              transition={{ duration: 0.6 }}
+            >
+              {serverData.description}
+            </motion.div>
+          </AnimatePresence>
+        ) : (
+          <AnimatePresence mode='wait'>
+            <motion.div
+              initial='hidden'
+              animate='visible'
+              variants={scaleVariants}
+              className={styles.descriptionContent}
+              transition={{ duration: 0.6 }}
+            >
+              <div dangerouslySetInnerHTML={{ __html: cleanHtml }} />
+            </motion.div>
+          </AnimatePresence>
+        )}
       </div>
 
       <AboutSection />
