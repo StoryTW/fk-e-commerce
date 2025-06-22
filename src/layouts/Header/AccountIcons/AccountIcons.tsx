@@ -5,6 +5,8 @@ import IconCart from '@/assets/images/icon-cart.svg?react';
 import IconProfile from '@/assets/images/icon-profile.svg?react';
 import { getToken } from '@/utils/token';
 import { useRouter } from 'next/navigation';
+import { openModal } from '@/store/useModalStore';
+import { CartModal } from './CartModal/CartModal';
 
 export const AccountIcons = () => {
   const router = useRouter();
@@ -12,7 +14,7 @@ export const AccountIcons = () => {
   const token = getToken();
 
   const handleOpenCart = () => {
-    console.log('open cart');
+    openModal(<CartModal />);
   };
 
   const handleOpenProfile = () => {
@@ -28,7 +30,7 @@ export const AccountIcons = () => {
       <button tabIndex={-1} type='button' className={styles.btn} onClick={handleOpenProfile}>
         <IconProfile />
       </button>
-      
+
       <button tabIndex={-1} type='button' className={styles.btn} onClick={handleOpenCart}>
         <IconCart />
       </button>

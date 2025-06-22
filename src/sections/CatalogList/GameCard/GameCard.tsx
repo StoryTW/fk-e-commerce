@@ -7,15 +7,12 @@ import { LeftSide } from './LeftSide/LeftSide';
 import { RightSide } from './RightSide/RightSide';
 import Link from 'next/link';
 import { useCartStore } from '@/store/useCartStore';
-// import { getToken } from '@/utils/token';
 
 interface IGameCard {
   data: GameModel;
 }
 
 export const GameCard = ({ data }: IGameCard) => {
-  // const token = getToken();
-
   const [isHoverLeft, setIsHoverLeft] = useState<boolean>(false);
   const [isHoverRight, setIsHoverRight] = useState<boolean>(false);
 
@@ -56,9 +53,7 @@ export const GameCard = ({ data }: IGameCard) => {
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
           <Image
-            src={
-              data?.preview.includes('https') ? data?.preview : `https://404game.ru${data?.preview}`
-            }
+            src={data?.preview}
             alt='img'
             className={styles.img}
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px'
@@ -72,7 +67,6 @@ export const GameCard = ({ data }: IGameCard) => {
           type='button'
           tabIndex={-1}
           onClick={(e) => handleAddToCart(e, data)}
-          // disabled={!token}
         >
           Купить
         </button>

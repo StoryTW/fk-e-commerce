@@ -2,8 +2,9 @@
 import React from 'react';
 import styles from './PromocodesPage.module.scss';
 import { PromocodeCard } from './PromocodeCard/PromocodeCard';
+import { useGetPromocodes } from '@/hooks/query/account/useGetPromocodes';
 
-const data = [
+const data1 = [
   {
     image: '/images/promocode_image.png',
     promocode: 'IGROMIR2025',
@@ -12,9 +13,13 @@ const data = [
 ];
 
 export const PromocodesPage = () => {
+  const { data, isLoading } = useGetPromocodes();
+
+  console.log(data, 'data');
+
   return (
     <div className={styles.root}>
-      {data.map((item, index) => {
+      {data1.map((item, index) => {
         return (
           <PromocodeCard
             key={index}

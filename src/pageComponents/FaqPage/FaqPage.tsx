@@ -78,7 +78,7 @@ export const FaqPage = () => {
     <div className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.faq}>
-          <h1 className={styles.title}>Часто задаваемые вопросы, FAQ</h1>
+          <h1 className={styles.title}>FAQ</h1>
           <div className={styles.content}>
             <div className={styles.divider} />
             <div className={styles.list}>

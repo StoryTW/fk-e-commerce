@@ -1,0 +1,39 @@
+.contentWrapper {
+  scrollbar-width: none;
+  overflow-y: scroll;
+  width: 100%;
+  background: var(--grayscale_80);
+  border-radius: 16px;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.content {
+  position: relative;
+  padding: 40px;
+  width: 100%;
+
+  .iconClose {
+    cursor: pointer;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    z-index: 101;
+
+    img,
+    svg {
+      @include transition;
+      color: var(--placeholder);
+    }
+
+    &:hover {
+      svg,
+      img {
+        color: var(--brand);
+      }
+    }
+  }
+}

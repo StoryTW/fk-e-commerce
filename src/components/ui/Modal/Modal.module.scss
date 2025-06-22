@@ -1,0 +1,41 @@
+.overlay {
+  @include transition;
+  position: fixed;
+  z-index: 1001;
+  inset: 0;
+  overflow-y: auto;
+  display: grid;
+  place-items: center;
+  @include transition;
+
+  &[data-state='open'] {
+    background-color: rgba(0, 0, 0, 0.1);
+    animation: fadeIn 300ms ease-out;
+    backdrop-filter: blur(8px);
+  }
+
+  &[data-state='closed'] {
+    background-color: transparent;
+    animation: fadeOut 300ms ease-in;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

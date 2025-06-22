@@ -6,8 +6,13 @@ import Link from 'next/link';
 import { useCartStore } from '@/store/useCartStore';
 import { formatPrice } from '@/utils/helpers/functions.helper';
 import { useRouter } from 'next/navigation';
+import { closeModal } from '@/store/useModalStore';
 
-export const CartOrder = () => {
+interface ICartOrder {
+  modal?: boolean;
+}
+
+export const CartOrder = ({ modal = false }: ICartOrder) => {
   const router = useRouter();
 
   const items = useCartStore((state) => state.items);
@@ -17,6 +22,7 @@ export const CartOrder = () => {
   }, 0);
 
   const handleNavigate = () => {
+    closeModal();
     router.push('/payform');
   };
 
@@ -35,7 +41,7 @@ export const CartOrder = () => {
           <Button variant='primary' size='s' onClick={handleNavigate}>
             Заказать
           </Button>
-          <Link href={'/'} className={styles.link}>{`< Продолжить покупки`}</Link>
+          {!modal && <Link href={'/'} className={styles.link}>{`< Продолжить покупки`}</Link>}
         </div>
       </div>
     </div>

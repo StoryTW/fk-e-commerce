@@ -8,7 +8,7 @@ import { IntroSection } from '@/sections/IntroSection/IntroSection';
 
 export const MainPage = () => {
   return (
-    <main className={styles.root}>
+    <div className={styles.root}>
       <div className={styles.wrapper}>
         <IntroSection />
 
@@ -20,6 +20,6 @@ export const MainPage = () => {
 
         <CatalogList />
       </div>
-    </main>
+    </div>
   );
 };

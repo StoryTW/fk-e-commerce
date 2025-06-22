@@ -1,17 +1,6 @@
 .root {
   display: flex;
   justify-content: center;
-
-  canvas {
-    @include transition;
-  }
-
-  &:hover {
-    canvas {
-      transform: rotate(45deg);
-      @include transition;
-    }
-  }
 }
 
 .content {
@@ -23,6 +12,17 @@
 
 .wheelWrapper {
   position: relative;
+
+  canvas {
+    @include transition;
+  }
+
+  &:hover {
+    canvas {
+      transform: rotate(45deg);
+      @include transition;
+    }
+  }
 }
 
 .circle2 {

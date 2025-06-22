@@ -12,6 +12,7 @@ export const useCreateInvoice = (
       InvoiceService.createInvoice({
         amount: data?.amount,
         email: data?.email,
+        games: data?.games,
       }),
     ...options,
   });

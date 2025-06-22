@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { COOKIE_NAME } from './utils/constants';
+import { AUTH_COOKIE_NAME } from './utils/constants';
 
 const protectedRoutes = [
   '/account/cart',
@@ -9,11 +9,10 @@ const protectedRoutes = [
   '/account/promocodes',
   '/account/refunds-history',
   '/account/success-orders',
-  '/payform',
 ];
 
 export function middleware(request: NextRequest) {
-  const authToken = request.cookies.get(COOKIE_NAME)?.value;
+  const authToken = request.cookies.get(AUTH_COOKIE_NAME)?.value;
   const isAuthenticated = !!authToken;
   const path = request.nextUrl.pathname;
 
@@ -29,5 +28,5 @@ export function middleware(request: NextRequest) {
 // };
 
 export const config = {
-  matcher: ['/account/:path*', '/payform'],
+  matcher: ['/account/:path*'],
 };

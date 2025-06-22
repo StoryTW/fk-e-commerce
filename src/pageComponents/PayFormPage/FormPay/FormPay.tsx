@@ -57,9 +57,12 @@ export const FormPay = () => {
   });
 
   const onSubmit: SubmitHandler<FormType> = (data) => {
+    const formatGames = items.join(', ');
+
     mutate({
       amount: String(sum),
       email: data.email,
+      games: formatGames,
     });
   };
 

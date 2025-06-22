@@ -87,13 +87,19 @@ const data = [
   },
 ];
 
-export const PrizeWheel = () => {
+interface IPrizeWheel {
+  account?: boolean;
+}
+
+export const PrizeWheel = ({ account = false }: IPrizeWheel) => {
   const token = getToken();
   const router = useRouter();
   const hasHydrated = useHasHydrated();
 
   const [mustSpin, setMustSpin] = useState<boolean>(false);
   const [prizeNumber, setPrizeNumber] = useState<number>(0);
+
+  const isChangeToAuth = Cookies.get(WHEEL_STORAGE) === '0' && !token;
 
   const handleSpinClick = () => {
     const spin = Cookies.get(WHEEL_STORAGE);
@@ -124,9 +130,15 @@ export const PrizeWheel = () => {
       return;
     }
 
-    toast.success(`Поздравляем! Вы выиграли: ${data[prizeNumber].option}`);
+    // toast.success(`Поздравляем! Вы выиграли: ${data[prizeNumber].option}`);
+    toast.success(`Для продолжения нужно зарегистрироваться`);
     Cookies.set(WHEEL_STORAGE, '0');
     return;
+  };
+
+  const handleStopSpin = () => {
+    setMustSpin(false);
+    handleToast();
   };
 
   if (!hasHydrated) return null;
@@ -154,10 +166,7 @@ export const PrizeWheel = () => {
             mustStartSpinning={mustSpin}
             prizeNumber={prizeNumber}
             data={data}
-            onStopSpinning={() => {
-              setMustSpin(false);
-              handleToast();
-            }}
+            onStopSpinning={handleStopSpin}
             radiusLineColor={'#638ac0'}
             pointerProps={{
               src: '/images/wheel/pointer.png',
@@ -177,9 +186,10 @@ export const PrizeWheel = () => {
         <Button
           variant='primary'
           size='s'
-          onClick={token ? handleSpinClick : handleNavigate}
+          onClick={isChangeToAuth ? handleNavigate : handleSpinClick}
+          disabled={isChangeToAuth}
         >
-          {token ? 'Испытать удачу' : 'Зарегистрироваться'}
+          {isChangeToAuth ? 'Зарегистрироваться' : 'Испытать удачу'}
         </Button>
       </div>
     </div>
