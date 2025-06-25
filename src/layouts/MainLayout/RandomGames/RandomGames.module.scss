@@ -11,7 +11,7 @@
     left: 0;
   }
 
-  @include respond(laptopC) {
+  @include respond(laptopL) {
     display: none;
   }
 }

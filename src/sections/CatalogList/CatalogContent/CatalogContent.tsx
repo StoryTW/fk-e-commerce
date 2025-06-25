@@ -31,9 +31,9 @@ export const CatalogContent = ({ serverData }: ICatalogContent) => {
       initialData: activeGenre?.id
         ? undefined
         : {
-            pages: [serverData],
-            pageParams: [1],
-          },
+          pages: [serverData],
+          pageParams: [1],
+        },
       staleTime: 1000 * 60 * 10, //10 min
     },
   );
@@ -46,6 +46,8 @@ export const CatalogContent = ({ serverData }: ICatalogContent) => {
 
   const formattedData = clientData?.pages?.flatMap((page) => page?.games);
 
+  const noGames = formattedData?.length === 0;
+
   useEffect(() => {
     if (isActiveAutoScroll && !isFetching && hasNextPage) {
       fetchNextPage();
@@ -54,6 +56,14 @@ export const CatalogContent = ({ serverData }: ICatalogContent) => {
 
   if (isLoading) {
     return <CatalogSkeleton />;
+  }
+
+  if (noGames) {
+    return (
+      <div className={styles.notFound}>
+        <div className={styles.notFoundTitle}>По данному запросу игры не найдены</div>
+      </div>
+    )
   }
 
   return (

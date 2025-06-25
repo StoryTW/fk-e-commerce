@@ -14,3 +14,15 @@
   justify-content: center;
   margin-top: 32px;
 }
+
+.notFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notFoundTitle {
+  text-align: center;
+  font-size: 16px;
+  color: var(--gray);
+}

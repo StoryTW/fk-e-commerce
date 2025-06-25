@@ -21,3 +21,17 @@
     }
   }
 }
+
+.cart {
+  position: relative;
+
+  .count {
+    position: absolute;
+    background-color: var(--aqua);
+    border-radius: 50%;
+    top: -4px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+  }
+}

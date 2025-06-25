@@ -7,11 +7,15 @@ import { getToken } from '@/utils/token';
 import { useRouter } from 'next/navigation';
 import { openModal } from '@/store/useModalStore';
 import { CartModal } from './CartModal/CartModal';
+import { useCartStore } from '@/store/useCartStore';
+import clsx from 'clsx';
 
 export const AccountIcons = () => {
   const router = useRouter();
 
   const token = getToken();
+
+  const items = useCartStore((state) => state.items);
 
   const handleOpenCart = () => {
     openModal(<CartModal />);
@@ -31,8 +35,16 @@ export const AccountIcons = () => {
         <IconProfile />
       </button>
 
-      <button tabIndex={-1} type='button' className={styles.btn} onClick={handleOpenCart}>
+      <button
+        tabIndex={-1}
+        type='button'
+        className={clsx(styles.btn, styles.cart)}
+        onClick={handleOpenCart}
+      >
         <IconCart />
+        {!!items.length && (
+          <div className={styles.count} />
+        )}
       </button>
     </div>
   );

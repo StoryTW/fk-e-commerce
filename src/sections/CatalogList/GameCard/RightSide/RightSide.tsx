@@ -5,14 +5,14 @@ import { animateHelper } from '@/utils/helpers/animation.helper';
 import { Button } from '@/components/ui/Buttons/Button/Button';
 import { useCartStore } from '@/store/useCartStore';
 import { GENRES_DATA } from '@/sections/GenresSection/GenresContent/GenresContent';
-import { getToken } from '@/utils/token';
+// import { getToken } from '@/utils/token';
 
 interface IRightSide {
   data: GameModel;
 }
 
 export const RightSide = ({ data }: IRightSide) => {
-  const token = getToken();
+  // const token = getToken();
 
   const addItem = useCartStore((state) => state.addItem);
 
@@ -57,7 +57,6 @@ export const RightSide = ({ data }: IRightSide) => {
           variant='primary'
           size='l'
           onClick={(e) => handleAddToCart(e, data)}
-          disabled={!token}
         >
           Добавить в корзину
         </Button>

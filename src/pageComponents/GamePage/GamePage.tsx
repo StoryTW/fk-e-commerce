@@ -136,7 +136,6 @@ export const GamePage = ({ serverData, fromSwiper = false }: IGamePage) => {
                     variant='primary'
                     size='l'
                     onClick={() => handleAddToCart(serverData)}
-                    disabled={!token}
                   >
                     Добавить в корзину
                   </Button>
