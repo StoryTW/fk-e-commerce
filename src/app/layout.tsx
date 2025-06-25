@@ -15,6 +15,7 @@ import Menu from '@/layouts/Menu/Menu';
 import Favicon from '/public/favicon.png';
 import { Socials } from '@/components/Socials/Socials';
 import clsx from 'clsx';
+import { CookiesPopup } from '@/components/CookiesPopup/CookiesPopup';
 
 export const metadata: Metadata = {
   title: 'Игромир',
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: RootLayoutType) {
             <Header />
             {children}
             <Socials />
+            <CookiesPopup />
           </Container>
           <div id='tooltipPortal' />
         </Providers>

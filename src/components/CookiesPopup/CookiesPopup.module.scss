@@ -1,0 +1,37 @@
+.root {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  max-width: 704px;
+  background: linear-gradient(to right, #0c264a, #879294);
+  display: grid;
+  grid-template-columns: minmax(320px, 704px);
+  border-radius: 16px;
+  opacity: 0.9;
+  margin: 0 auto;
+
+  @include respond(tabletContainer) {
+    margin: 0 16px;
+  }
+}
+
+.wrapper {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.title {
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--white);
+}
