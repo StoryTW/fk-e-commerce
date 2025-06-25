@@ -4,4 +4,8 @@ export const InvoiceService = {
   async createInvoice(data: CreateInvoiceDto) {
     return await api.post<CreateInvoiceModel>('invoice', data);
   },
+
+  async paymentInfo(params: PaymentInfoDto) {
+    return await api.get<PaymentInfoModel>('payment/status', params);
+  },
 };

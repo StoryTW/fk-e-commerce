@@ -6,7 +6,7 @@ export const AccountService = {
   },
 
   async getPromocodes() {
-    return await api.get<any>('/promocodes');
+    return await api.get<PromocodesListModel>('/promocodes');
   },
 
   async createPromocode(data: CreatePromocodeDto) {

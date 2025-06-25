@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 
 export const KEY_GET_PROMOCODES = 'KEY_GET_PROMOCODES';
 
-export const useGetPromocodes = (options?: QueryOptions<any, BasicErrorModel>) =>
+export const useGetPromocodes = (options?: QueryOptions<PromocodesListModel, BasicErrorModel>) =>
   useQuery({
     queryKey: [KEY_GET_PROMOCODES],
     queryFn: () => AccountService.getPromocodes(),

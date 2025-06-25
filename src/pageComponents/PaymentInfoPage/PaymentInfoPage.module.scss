@@ -1,0 +1,82 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 20px 30px;
+}
+
+.title {
+  font-size: 26px;
+  margin-bottom: 48px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(320px, 816px);
+  background-color: var(--white_alpha);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(8px);
+
+  // @include respond(mobileL) {
+  //   grid-template-columns: auto;
+  //   padding: 34px 20px;
+  // }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  margin-bottom: 16px;
+}
+
+.text {
+  font-size: 28px;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+
+.textPrice {
+  font-size: 18px;
+  color: var(--aqua);
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 32px;
+  color: var(--aqua);
+  margin-bottom: 48px;
+}
+
+.linkWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.link {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--white);
+  @include transition;
+
+  &:hover {
+    color: var(--aqua);
+  }
+}
+
+.loadingWrapper {
+  svg {
+    animation: s3 3s infinite linear;
+  }
+}
+
+@keyframes s3 {
+  to {
+    transform: rotate(-1turn);
+  }
+}

@@ -10,6 +10,8 @@ import { toast } from 'react-toastify';
 import Image from 'next/image';
 import Cookies from 'js-cookie';
 import { WHEEL_STORAGE } from '@/utils/constants';
+import { useCreatePromocode } from '@/hooks/query/account/useCreatePromocode';
+import { extractPercentage } from '@/utils/helpers/functions.helper';
 
 const Wheel = dynamic(() => import('react-custom-roulette').then((mod) => mod.Wheel), {
   ssr: false,
@@ -87,17 +89,15 @@ const data = [
   },
 ];
 
-interface IPrizeWheel {
-  account?: boolean;
-}
-
-export const PrizeWheel = ({ account = false }: IPrizeWheel) => {
+export const PrizeWheel = () => {
   const token = getToken();
   const router = useRouter();
   const hasHydrated = useHasHydrated();
 
   const [mustSpin, setMustSpin] = useState<boolean>(false);
   const [prizeNumber, setPrizeNumber] = useState<number>(0);
+
+  const { mutate } = useCreatePromocode();
 
   const isChangeToAuth = Cookies.get(WHEEL_STORAGE) === '0' && !token;
 
@@ -130,8 +130,12 @@ export const PrizeWheel = ({ account = false }: IPrizeWheel) => {
       return;
     }
 
-    // toast.success(`Поздравляем! Вы выиграли: ${data[prizeNumber].option}`);
-    toast.success(`Для продолжения нужно зарегистрироваться`);
+    if (token) {
+      toast.success(`Поздравляем! Вы выиграли: ${data[prizeNumber].option}`);
+    } else {
+      toast.success(`Для продолжения нужно зарегистрироваться`);
+    }
+
     Cookies.set(WHEEL_STORAGE, '0');
     return;
   };
@@ -139,6 +143,17 @@ export const PrizeWheel = ({ account = false }: IPrizeWheel) => {
   const handleStopSpin = () => {
     setMustSpin(false);
     handleToast();
+
+    const isPromocode = data[prizeNumber].option.includes('Получить промокод');
+
+    if (token && isPromocode) {
+      const percent = extractPercentage(data[prizeNumber].option);
+
+      mutate({
+        name: `IGROMIR${percent}`,
+        percent: String(percent),
+      });
+    }
   };
 
   if (!hasHydrated) return null;
@@ -187,7 +202,6 @@ export const PrizeWheel = ({ account = false }: IPrizeWheel) => {
           variant='primary'
           size='s'
           onClick={isChangeToAuth ? handleNavigate : handleSpinClick}
-          disabled={isChangeToAuth}
         >
           {isChangeToAuth ? 'Зарегистрироваться' : 'Испытать удачу'}
         </Button>

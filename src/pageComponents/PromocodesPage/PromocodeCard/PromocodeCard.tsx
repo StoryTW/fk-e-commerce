@@ -22,7 +22,7 @@ export const PromocodeCard = ({ promocode, value, image }: IPromocodeCard) => {
           </div>
         </div>
       </div>
-      <div className={styles.promocodeValue}>{value}</div>
+      <div className={styles.promocodeValue}>{value}%</div>
     </div>
   );
 };

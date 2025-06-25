@@ -3,3 +3,7 @@ declare interface CreateInvoiceDto {
   email: string;
   games: string;
 }
+
+declare interface PaymentInfoDto {
+  order_id: string;
+}
