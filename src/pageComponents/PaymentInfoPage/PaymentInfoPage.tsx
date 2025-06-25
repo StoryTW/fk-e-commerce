@@ -17,7 +17,7 @@ export const PaymentInfoPage = () => {
     enabled: !!order_id,
   });
 
-  if (isLoading) {
+  if (isLoading || data?.status === 'pending') {
     return (
       <div className={styles.root}>
         <h1 className={styles.title}>Информация по оплате</h1>
@@ -50,7 +50,7 @@ export const PaymentInfoPage = () => {
             </>
           )}
 
-          {isSuccess && data && (
+          {isSuccess && data.status === 'paid' && (
             <>
               <Image
                 src='/images/payment/icon_success.svg'
