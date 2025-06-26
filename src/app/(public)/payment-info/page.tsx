@@ -1,5 +1,6 @@
 import { PaymentInfoPage } from '@/pageComponents/PaymentInfoPage/PaymentInfoPage';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Игромир - Информация по оплате',
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function PaymentInfo() {
-  return <PaymentInfoPage />;
+  return (
+    <Suspense>
+      <PaymentInfoPage />
+    </Suspense>
+  );
 }
