@@ -1,0 +1,36 @@
+.root {
+  display: grid;
+  grid-template-columns: minmax(320px, 1088px);
+  justify-content: center;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 101;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.docs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.address {
+  font-size: 16px;
+  color: var(--gray);
+}
+
+.link {
+  font-size: 16px;
+  color: var(--gray);
+  @include transition;
+
+  &:hover {
+    color: var(--aqua);
+  }
+}

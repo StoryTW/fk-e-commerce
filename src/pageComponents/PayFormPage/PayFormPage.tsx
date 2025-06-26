@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { LayoutGroup, motion } from 'motion/react';
 import { FormPay } from './FormPay/FormPay';
 import { TooltipRadix } from '@/components/ui/Tooltip/Tooltip';
+import { Footer } from '@/layouts/Footer/Footer';
 
 const METHODS_DATA = [
   {

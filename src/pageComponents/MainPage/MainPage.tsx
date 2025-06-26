@@ -5,6 +5,7 @@ import CatalogList from '@/sections/CatalogList/CatalogList';
 import TopPaySection from '@/sections/TopPaySection/TopPaySection';
 import GenresSection from '@/sections/GenresSection/GenresSection';
 import { IntroSection } from '@/sections/IntroSection/IntroSection';
+import { Footer } from '@/layouts/Footer/Footer';
 
 export const MainPage = () => {
   return (
@@ -19,6 +20,8 @@ export const MainPage = () => {
         <GenresSection />
 
         <CatalogList />
+
+        <Footer />
       </div>
     </div>
   );

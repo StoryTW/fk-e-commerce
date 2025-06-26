@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './ContactsPage.module.scss';
 import Image from 'next/image';
 import { AboutSection } from '@/sections/AboutSection/AboutSection';
+import { Footer } from '@/layouts/Footer/Footer';
 
 export const ContactsPage = () => {
   return (
@@ -62,6 +63,8 @@ export const ContactsPage = () => {
         </div>
 
         <AboutSection />
+
+        <Footer />
       </div>
     </main>
   );

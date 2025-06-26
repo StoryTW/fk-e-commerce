@@ -5,7 +5,7 @@
 }
 
 .wrapper {
-  padding: 90px 0px 48px;
+  padding: 90px 0px 0px;
 }
 
 .title {
@@ -19,6 +19,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(100px, 526px));
   gap: 16px;
+  margin-bottom: 48px;
 
   @include respond(tablet) {
     grid-template-columns: repeat(1, minmax(100px, 526px));

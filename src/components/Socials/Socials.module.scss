@@ -3,6 +3,10 @@
   bottom: 26px;
   right: 96px;
   z-index: 1001;
+
+  @include respond(tabletS) {
+    right: 32px;
+  }
 }
 
 .wrapper {

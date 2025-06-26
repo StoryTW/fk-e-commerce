@@ -9,6 +9,7 @@ import { getToken } from '@/utils/token';
 import { useHasHydrated } from '@/hooks/common/useHasHydrated';
 import { useCartStore } from '@/store/useCartStore';
 import { AnimatePresence, motion } from 'motion/react';
+import { Footer } from '@/layouts/Footer/Footer';
 
 const scaleVariants = {
   hidden: { opacity: 0, scale: 0 },
@@ -132,11 +133,7 @@ export const GamePage = ({ serverData, fromSwiper = false }: IGamePage) => {
                 </div>
 
                 <div className={styles.item}>
-                  <Button
-                    variant='primary'
-                    size='l'
-                    onClick={() => handleAddToCart(serverData)}
-                  >
+                  <Button variant='primary' size='l' onClick={() => handleAddToCart(serverData)}>
                     Добавить в корзину
                   </Button>
                 </div>
@@ -182,6 +179,8 @@ export const GamePage = ({ serverData, fromSwiper = false }: IGamePage) => {
       </div>
 
       <AboutSection />
+
+      <Footer />
     </div>
   );
 };

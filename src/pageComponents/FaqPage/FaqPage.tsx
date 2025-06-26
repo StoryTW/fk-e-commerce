@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './FaqPage.module.scss';
 import { FaqItem } from '@/components/FaqItem/FaqItem';
 import { AboutSection } from '@/sections/AboutSection/AboutSection';
+import { Footer } from '@/layouts/Footer/Footer';
 
 const FAQ_DATA = [
   {
@@ -87,7 +88,10 @@ export const FaqPage = () => {
               })}
             </div>
           </div>
+
           <AboutSection />
+
+          <Footer />
         </div>
       </div>
     </div>

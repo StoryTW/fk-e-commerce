@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ReviewPage.module.scss';
 import { ReviewCard } from './ReviewCard/ReviewCard';
+import { Footer } from '@/layouts/Footer/Footer';
 
 const data1 = [
   {
@@ -69,6 +70,8 @@ export const ReviewPage = () => {
             })}
           </div>
         </div>
+
+        <Footer />
       </div>
     </div>
   );
