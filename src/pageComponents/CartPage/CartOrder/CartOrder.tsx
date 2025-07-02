@@ -23,6 +23,7 @@ export const CartOrder = ({ modal = false }: ICartOrder) => {
 
   const handleNavigate = () => {
     closeModal();
+    
     router.push('/payform');
   };
 

@@ -13,16 +13,20 @@ export const PromocodesPage = () => {
 
   return (
     <div className={styles.root}>
-      {data?.promocodes.map((item, index) => {
-        return (
-          <PromocodeCard
-            key={index}
-            image={'/images/promocode_image.png'}
-            promocode={item.name}
-            value={item.percent}
-          />
-        );
-      })}
+      {data?.promocodes.length ? (
+        data?.promocodes.map((item, index) => {
+          return (
+            <PromocodeCard
+              key={index}
+              image={'/images/promocode_image.png'}
+              promocode={item.name}
+              value={item.percent}
+            />
+          );
+        })
+      ) : (
+        <div className={styles.noItems}>У вас нет промокодов</div>
+      )}
     </div>
   );
 };

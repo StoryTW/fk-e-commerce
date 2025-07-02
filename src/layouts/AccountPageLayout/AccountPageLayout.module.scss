@@ -4,6 +4,10 @@
 
 .wrapper {
   padding: 0px 16px 48px 32px;
+
+  @include respond(laptop) {
+    padding: 0px;
+  }
 }
 
 .title {

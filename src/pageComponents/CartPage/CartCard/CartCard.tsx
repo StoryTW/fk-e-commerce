@@ -26,7 +26,7 @@ export const CartCard = ({ image, name, price, id }: ICartCard) => {
             alt='img'
             fill
           />
-        </div>
+        </div>                        
         <div className={styles.content}>
           <div className={styles.name}>{name}</div>
           <div className={styles.description}>
