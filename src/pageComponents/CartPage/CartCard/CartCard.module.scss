@@ -4,9 +4,9 @@
   border-radius: 24px;
   backdrop-filter: blur(4px);
 
-  @include respond(tabletL) {
-    padding-bottom: 50px;
-  }
+  // @include respond(tabletL) {
+  //   padding-bottom: 50px;
+  // }
 }
 
 .wrapper {
@@ -15,17 +15,33 @@
   align-items: center;
   gap: 16px;
 
-  @include respond(tabletL) {
+  @include respond(tabletSM) {
     flex-direction: column;
   }
 }
 
 .imgWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 18px;
+  max-width: 292px;
+  width: 100%;
+  height: 177px;
+  border-radius: 16px;
   overflow: hidden;
+
+  @include respond(laptop) {
+    max-width: 260px;
+  }
+
+  @include respond(tabletSM) {
+    max-width: 100%;
+  }
+
+  img {
+    object-fit: cover;
+  }
 }
 
 .name {
@@ -33,12 +49,22 @@
   font-weight: 600;
   color: var(--white);
   margin-bottom: 32px;
+  max-width: 340px;
+
+  @include respond(laptop) {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
 }
 
 .description {
   font-size: 18px;
   font-weight: 400;
   color: var(--white);
+
+  @include respond(laptop) {
+    font-size: 14px;
+  }
 }
 
 .delete {
@@ -47,6 +73,7 @@
   right: 10px;
   cursor: pointer;
   @include transition;
+
 
   &:hover {
     opacity: 0.5;
@@ -57,6 +84,17 @@
   }
 }
 
+.delImg {
+  position: relative;
+  width: 52px;
+  height: 52px;
+
+  @include respond(laptop) {
+    width: 28px;
+    height: 28px;
+  }
+}
+
 .price {
   position: absolute;
   bottom: 10px;
@@ -64,4 +102,8 @@
   font-size: 30px;
   font-weight: 600;
   color: var(--aqua);
+
+  @include respond(laptop) {
+    font-size: 24px;
+  }
 }

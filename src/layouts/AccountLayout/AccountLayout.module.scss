@@ -2,6 +2,10 @@
   position: relative;
   padding: 50px 20px 0px;
 
+  @include respond(tablet) {
+    padding: 50px 16px 0px;
+  }
+
   &::before {
     content: '';
     width: 100%;

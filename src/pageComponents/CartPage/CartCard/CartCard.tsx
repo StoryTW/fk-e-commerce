@@ -22,11 +22,9 @@ export const CartCard = ({ image, name, price, id }: ICartCard) => {
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
           <Image
-            // src={image.includes('https') ? image : `https://404game.ru${image}`}
             src={image}
             alt='img'
-            width={292}
-            height={176}
+            fill
           />
         </div>
         <div className={styles.content}>
@@ -37,7 +35,9 @@ export const CartCard = ({ image, name, price, id }: ICartCard) => {
         </div>
       </div>
       <button className={styles.delete} onClick={handleDelete}>
-        <Image src={'/images/delete_icon.png'} alt='success_icon' width={53} height={52} />
+        <div className={styles.delImg}>
+          <Image src={'/images/delete_icon.png'} alt='success_icon' fill />
+        </div>
       </button>
       <div className={styles.price}>{`${price} руб`}</div>
     </div>

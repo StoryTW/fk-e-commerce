@@ -10,16 +10,35 @@
   align-items: center;
   gap: 16px;
 
-  @include respond(laptop) {
+  @include respond(tabletSM) {
     flex-direction: column;
-    padding-bottom: 50px;
   }
 }
 
 .imgWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 292px;
+  width: 100%;
+  height: 177px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  @include respond(tabletSM) {
+    max-width: 100%;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.info {
+  @include respond(tabletSM) {
+    padding: 0px 16px 16px;
+  }
 }
 
 .promocode {
@@ -27,12 +46,20 @@
   font-weight: 600;
   color: var(--white);
   margin-bottom: 12px;
+
+  @include respond(laptop) {
+    font-size: 24px;
+  }
 }
 
 .description {
   font-size: 18px;
   font-weight: 400;
   color: var(--white);
+
+  @include respond(laptop) {
+    font-size: 14px;
+  }
 }
 
 .promocodeValue {
@@ -42,4 +69,8 @@
   font-size: 48px;
   font-weight: 800;
   color: var(--aqua);
+
+  @include respond(laptop) {
+    font-size: 36px;
+  }
 }

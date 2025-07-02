@@ -13,7 +13,7 @@ export const PromocodeCard = ({ promocode, value, image }: IPromocodeCard) => {
     <div className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
-          <Image src={image} width={292} height={177} alt='promocode_image' />
+          <Image src={image} fill alt='promocode_image' />
         </div>
         <div className={styles.info}>
           <div className={styles.promocode}>{promocode}</div>
