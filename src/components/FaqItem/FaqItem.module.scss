@@ -29,6 +29,10 @@
 
 .wrapper {
   padding: 24px 36px;
+
+  @include respond(tabletS) {
+    padding: 16px;
+  }
 }
 
 .question {

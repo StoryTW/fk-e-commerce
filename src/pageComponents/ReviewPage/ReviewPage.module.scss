@@ -21,8 +21,10 @@
   gap: 16px;
   margin-bottom: 48px;
 
-  @include respond(tablet) {
-    grid-template-columns: repeat(1, minmax(100px, 526px));
+  @include respond(tabletS) {
+    grid-template-columns: minmax(100px, 526px);
+    margin-bottom: 16px;
+    justify-content: center;
   }
 }
 
@@ -37,4 +39,8 @@
   flex-direction: column;
   gap: 16px;
   margin-top: 32px;
+
+  @include respond(tabletS) {
+    margin-top: 0px;
+  }
 }

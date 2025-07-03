@@ -17,9 +17,13 @@
 
 .content {
   display: grid;
-  grid-template-columns: minmax(1px, 1px) minmax(320px, 1066px);
+  grid-template-columns: minmax(1px, 1px) minmax(270px, 1066px);
   gap: 1px;
   margin-bottom: 48px;
+
+  @include respond(tabletS) {
+    grid-template-columns: minmax(270px, 1066px);
+  }
 }
 
 .divider {
@@ -27,6 +31,10 @@
   height: 100%;
   border-radius: 50%;
   background: var(--aqua);
+
+  @include respond(tabletS) {
+    display: none;
+  }
 }
 
 .list {
