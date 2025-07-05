@@ -1,10 +1,15 @@
 .root {
   display: grid;
-  grid-template-columns: minmax(320px, 1088px);
+  grid-template-columns: minmax(260px, 1088px);
   justify-content: center;
   margin-bottom: 64px;
   position: relative;
   z-index: 101;
+  padding: 0px 0px 24px;
+
+  @include respond(laptop) {
+    padding: 0px 16px 16px;
+  }
 }
 
 .wrapper {

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './SuccessOrdersPage.module.scss';
 import { useGetPayments } from '@/hooks/query/invoice/useGetPayments';
@@ -12,11 +13,20 @@ export const SuccessOrdersPage = () => {
 
   return (
     <div className={styles.root}>
-      {data.length ? (
+      {data?.invoices.length ? (
         <>
-          {data?.map((item, index) => {
-            return <SuccessOrderCard key={index} image={item.image} name={item.name} />;
-          })}
+          {data?.invoices
+            .filter((invoice) => invoice.status === 'paid')
+            .map((item, index) => {
+              return (
+                <SuccessOrderCard
+                  key={index}
+                  amount={item.amount}
+                  order_id={item.order_id}
+                  games={item.games}
+                />
+              );
+            })}
         </>
       ) : (
         <div className={styles.noItems}>Вы еще ничего не купили</div>

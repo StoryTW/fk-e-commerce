@@ -31,6 +31,10 @@
   top: -30px;
 
   animation: spin 14s linear infinite;
+
+  @include respond(laptop) {
+    display: none;
+  }
 }
 
 .circle {

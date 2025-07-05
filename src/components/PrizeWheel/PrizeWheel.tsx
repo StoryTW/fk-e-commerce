@@ -156,6 +156,22 @@ export const PrizeWheel = () => {
     }
   };
 
+  const getPointerStyle = () => {
+    const width = window.innerWidth;
+
+    if (width <= 375) {
+      return { width: 140, height: 60, right: -10, top: 4 };
+    } else if (width <= 480) {
+      return { width: 200, height: 100, right: -30, top: 6 };
+    }else if (width <= 768) {
+      return { width: 200, height: 100, right: -30, top: 6 };
+    } else if (width <= 1024) {
+      return { width: 240, height: 112, right: -40, top: 8 };
+    } else {
+      return { width: 250, height: 128, right: -50, top: 10 };
+    }
+  };
+
   if (!hasHydrated) return null;
 
   return (
@@ -187,11 +203,8 @@ export const PrizeWheel = () => {
               src: '/images/wheel/pointer.png',
               style: {
                 transform: 'rotate(-48deg)',
-                width: 250,
-                height: 128,
-                right: -50,
-                top: 10,
                 zIndex: 100,
+                ...getPointerStyle(),
               },
             }}
             outerBorderWidth={2}

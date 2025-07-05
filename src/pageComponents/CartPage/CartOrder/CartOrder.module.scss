@@ -8,12 +8,11 @@
   padding: 8px 16px;
   display: grid;
   grid-template-columns: max-content 1fr max-content;
+  gap: 16px;
 
   @include respond(tabletL) {
     grid-template-columns: max-content;
   }
-
-  gap: 16px;
 }
 
 .sumBlock {

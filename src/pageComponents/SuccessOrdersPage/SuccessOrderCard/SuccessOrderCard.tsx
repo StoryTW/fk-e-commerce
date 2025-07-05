@@ -1,33 +1,33 @@
 import React from 'react';
 import styles from './SuccessOrderCard.module.scss';
 import Image from 'next/image';
+import { formatPrice } from '@/utils/helpers/functions.helper';
 
 interface ISuccessOrderCard {
-  image: string;
-  name: string;
+  games: string;
+  order_id: string;
+  amount: string;
 }
 
-export const SuccessOrderCard = ({ image, name }: ISuccessOrderCard) => {
+export const SuccessOrderCard = ({ games, order_id, amount }: ISuccessOrderCard) => {
   return (
     <div className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.imgWrapper}>
-          <Image src={image} alt='img' width={292} height={176} />
+          <Image src={'/images/promocode_image.png'} alt='img' width={292} height={176} />
         </div>
         <div className={styles.content}>
-          <div className={styles.name}>{name}</div>
-          <div className={styles.description}>
-            При заказе игры все инструкции будут отпрвалены на почту
+          <div className={styles.id}>
+            {`ID заказа:`} <span>{order_id}</span>
+          </div>
+          <div className={styles.status}>
+            {`Статус заказа:`} <span>Оплачен</span>
+          </div>
+          <div className={styles.games}>{`Список игр: ${games}`}</div>
+          <div className={styles.sum}>
+            {`Сумма заказа:`} <span>{formatPrice(Number(amount))}</span>
           </div>
         </div>
-      </div>
-      <div className={styles.successMarker}>
-        <Image
-          src={'/images/success_icon_order_card.png'}
-          alt='success_icon'
-          width={53}
-          height={52}
-        />
       </div>
     </div>
   );

@@ -10,6 +10,6 @@ export const InvoiceService = {
   },
 
   async getPayments() {
-    return await api.get<any>('/invoices');
+    return await api.get<SuccessPaymentsModel>('/invoices');
   },
 };
