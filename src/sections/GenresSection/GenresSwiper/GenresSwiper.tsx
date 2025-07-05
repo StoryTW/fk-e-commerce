@@ -29,32 +29,26 @@ export const GenresSwiper = ({ data }: IGenresSwiper) => {
           modules={[Navigation]}
           slidesPerView={'auto'}
           breakpoints={{
-            // when window width is >= 320px
             320: {
-              slidesPerView: 2,
+              slidesPerView: 3,
               spaceBetween: 8,
             },
-            // when window width is >= 480px
-            480: {
-              slidesPerView: 2,
+            475: {
+              slidesPerView: 3,
               spaceBetween: 10,
             },
-            // when window width is >= 640px
             640: {
               slidesPerView: 6,
               spaceBetween: 12,
             },
-            // when window width is >= 768px
             768: {
               slidesPerView: 9,
               spaceBetween: 12,
             },
-            // when window width is >= 1024px
             1024: {
               slidesPerView: 10,
               spaceBetween: 12,
             },
-            // when window width is >= 1280px
             1280: {
               slidesPerView: 14,
               spaceBetween: 12,

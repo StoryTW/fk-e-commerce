@@ -5,6 +5,18 @@
   text-transform: uppercase;
   padding: 60px 130px 0px;
   margin-bottom: 180px;
+
+  @include respond(tabletS) {
+    font-size: 48px;
+    margin-bottom: 120px;
+    padding: 60px 48px 0px;
+  }
+
+  @include respond(mobileL) {
+    font-size: 28px;
+    margin-bottom: 80px;
+    padding: 48px 16px 0px;
+  }
 }
 
 .titleSecond {
@@ -15,4 +27,16 @@
   text-align: end;
   padding: 0px 220px;
   margin-bottom: 240px;
+
+  @include respond(tabletS) {
+    font-size: 24px;
+    margin-bottom: 180px;
+    padding: 0px 48px;
+  }
+
+  @include respond(mobileL) {
+    font-size: 20px;
+    margin-bottom: 120px;
+    padding: 0px 16px;
+  }
 }

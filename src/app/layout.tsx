@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { Onest } from 'next/font/google';
 import { Header } from '@/layouts/Header/Header';
@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     icon: Favicon.src,
     apple: Favicon.src,
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: true,
 };
 
 const geometria = localFont({
