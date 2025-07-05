@@ -4,6 +4,14 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
 
+  @include respond(laptopL) {
+    padding: 0px 240px;
+  }
+
+  @include respond(laptopB) {
+    padding: 0px;
+  }
+
   @include respond(tabletSM) {
     grid-template-columns: repeat(1, 1fr);
   }
