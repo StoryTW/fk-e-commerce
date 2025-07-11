@@ -8,12 +8,21 @@ import { formatPrice } from '@/utils/helpers/functions.helper';
 import Link from 'next/link';
 import IconSpinner from '@/assets/images/tube-spinner.svg?react';
 
+const FIVE_SECONDS = 1000 * 5;
+
 export const PaymentInfoPage = () => {
   const searchParams = useSearchParams();
 
-  const order_id = searchParams.get('order_id');
+  const order_id = searchParams.get('id');
 
   const { data, error, isSuccess, isLoading } = usePaymentInfo(order_id as string, {
+    refetchInterval: (query) => {
+      const status = query.state.data?.status;
+
+      if (status === 'pending') return FIVE_SECONDS;
+
+      return false;
+    },
     enabled: !!order_id,
   });
 

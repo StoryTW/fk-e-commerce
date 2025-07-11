@@ -11,6 +11,13 @@
 
 .genre {
   cursor: pointer;
+
+  &:hover {
+    svg {
+      color: var(--aqua);
+      filter: drop-shadow(0 0 20px #7effc5);
+    }
+  }
 }
 
 .imgWrapper {
@@ -32,6 +39,7 @@
     min-width: 56px;
     min-height: 56px;
     color: var(--white);
+    @include transition;
   }
 
   &.active {

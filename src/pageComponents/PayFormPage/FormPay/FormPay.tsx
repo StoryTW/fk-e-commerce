@@ -57,7 +57,7 @@ export const FormPay = () => {
   });
 
   const onSubmit: SubmitHandler<FormType> = (data) => {
-    const formatGames = items.join(', ');
+    const formatGames = items.map((game) => game.title).join(', ');
 
     mutate({
       amount: String(sum),
