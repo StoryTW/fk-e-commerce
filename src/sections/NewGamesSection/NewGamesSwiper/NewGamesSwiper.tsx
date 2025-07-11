@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import styles from './NewGamesSwiper.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectCoverflow } from 'swiper/modules';
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from './NewGamesSwiper.module.scss';
 
 interface INewGamesSwiper {
   data: {

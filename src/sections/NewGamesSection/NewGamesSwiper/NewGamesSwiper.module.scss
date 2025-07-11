@@ -47,9 +47,9 @@
 }
 
 .slide {
-  width: 817px;
-  display: flex;
-  justify-content: center;
+  width: 817px !important;
+  display: flex !important;
+  justify-content: center !important;
 
   @include respond(tablet) {
     width: 100%;
